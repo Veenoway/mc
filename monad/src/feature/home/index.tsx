@@ -1,5 +1,7 @@
 "use client";
+import { fetchDiscordMemes } from "@/api/fetchDiscordMemes";
 import { callAnimation } from "@/lib/gsap/home";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BoxCharacter } from "./components/box-character";
 import { characters } from "./constant";
@@ -8,6 +10,11 @@ export const Home = () => {
   useEffect(() => {
     callAnimation();
   }, []);
+
+  const { data: memes } = useQuery({
+    queryFn: async () => fetchDiscordMemes(),
+    queryKey: ["discord-memes"],
+  });
 
   return (
     <div>
@@ -53,7 +60,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="fourth-box flex flex-col items-center h-screen w-screen bg-red">
+      <div className="fourth-box flex flex-col items-center w-screen bg-red">
         <div className="h-[350px]" />
         <h2 className="text-[72px] leading-[50px] text-white">
           Discover Monad Lore!
@@ -63,6 +70,7 @@ export const Home = () => {
             <BoxCharacter content={character} />
           ))}
         </div>
+
         <div className="description-last">
           <p id="provider2"></p>
           <p id="token_amounts"></p>

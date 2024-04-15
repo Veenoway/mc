@@ -3,21 +3,21 @@ export const characters = [
     image: "/moyaki.png",
     title: "Moyaki",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Mokadel (also spelled Mokadal) is a monanimal created by Elea Rachel who simply pasted him in the server along with the words 'kadal ksksksks'. Little is known about Mokadel or his habitat.",
     url: "/moyaki",
   },
   {
     image: "/chog.png",
     title: "Chog",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Chog is a cat-like creature known to inhabit the monad discord. Chog was originally conceived by community member RayJ in a twitter post where he was attempting to use a new AI tool that converts drawings into images.",
     url: "/chog",
   },
   {
     image: "/molandak.png",
     title: "Molandak",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Molandak is a small purple hedgehog that inhabits the monad discord. Molandak is listed on RayJ's alignment chart as 'Chaotic Good'.",
     url: "/molandak",
   },
 ];

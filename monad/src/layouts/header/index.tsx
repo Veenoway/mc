@@ -12,11 +12,14 @@ export const Header = () => {
           <h1 className="text-white text-[24px] leading-9 ml-2">Monad Lore</h1>
         </div>
         <nav className="flex items-center">
-          <a href="#" className="text-white text-[16px] leading-9 mr-5">
+          <a href="/" className="text-white text-[16px] leading-9 mr-5">
             Home
           </a>
-          <a href="#" className="text-white text-[16px] leading-9">
-            About
+          <a href="/arts" className="text-white text-[16px] leading-9 mr-5">
+            Community Arts
+          </a>
+          <a href="/faq" className="text-white text-[16px] leading-9">
+            F.A.Q
           </a>
         </nav>
       </div>

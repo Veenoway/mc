@@ -1,8 +1,15 @@
+import { Header } from "@/layouts/header";
+import ReactQueryProvider from "@/lib/react-query";
 import type { Metadata } from "next";
-import { Rowdies } from "next/font/google";
+import { Inter, Rowdies } from "next/font/google";
 import "./globals.css";
 
 const rowdies = Rowdies({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const inter = Inter({
   subsets: ["latin"],
   weight: "400",
 });
@@ -19,7 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rowdies.className}>{children}</body>
+      <ReactQueryProvider>
+        <body className={rowdies.className}>
+          <Header />
+          <main>{children}</main>
+        </body>
+      </ReactQueryProvider>
     </html>
   );
 }
