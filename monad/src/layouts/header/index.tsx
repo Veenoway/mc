@@ -1,6 +1,6 @@
 export const Header = () => {
   return (
-    <header className="bg-header w-full h-[70px] border-b-2 border-base-border flex justify-center">
+    <header className="bg-[rgba(255,255,255,0.05)] backdrop-blur-lg w-full h-[70px] border-b-2 border-base-border flex justify-center fixed top-0 z-10">
       <div className="flex items-center justify-between w-[90%] h-full">
         <div className="flex items-center">
           <img
