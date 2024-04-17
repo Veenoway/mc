@@ -1,57 +1,89 @@
 "use client";
 import { fetchDiscordMemes } from "@/api/fetchDiscordMemes";
+import { AnimateOpacity } from "@/components/animated-opacity";
+import { AnimatedText } from "@/components/animated-text";
 import { Button } from "@/components/button";
-import { ExtraLargeFont, LargeFont } from "@/components/font";
-import { BackgroundGradientAnimation } from "@/components/gradient-background";
-import { callAnimation } from "@/lib/gsap/home";
+import { Card } from "@/components/card";
+import { LargeFont } from "@/components/font";
+import { HeroParallax } from "@/components/hero-parralax";
+import { LampContainer } from "@/components/lamp-effect";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { BoxCharacter } from "./components/box-character";
+import { useMemo } from "react";
 import { characters } from "./constant";
 
 export const Home = () => {
-  useEffect(() => {
-    callAnimation();
-  }, []);
-
-  const { data: memes } = useQuery({
+  const { data: memes, isLoading } = useQuery({
     queryFn: async () => fetchDiscordMemes(),
     queryKey: ["discord-memes"],
   });
 
+  console.log("meme", memes);
+  const memesFormatted = useMemo(() => {
+    return memes
+      ?.filter((_, i) => i < 20)
+      ?.map((meme) => {
+        return {
+          title: meme.author?.global_name || meme.author?.username,
+          url: "/",
+          image: meme.attachments?.[0]?.url,
+        };
+      });
+  }, [memes]);
+
+  console.log("memememe", memesFormatted);
+
   return (
-    <div className="relative">
-      <div className="flex flex-col justify-center items-center h-screen w-screen">
-        <img
-          className="z-10 mb-10 pointer-events-none"
-          height="300"
-          width="300"
-          src="/monad_logo_blue.png"
-        />
-        <ExtraLargeFont className="z-10 pointer-events-none">
+    <div className="relative bg-gradient-to-br ">
+      <div className="flex flex-col justify-center items-center h-screen w-screen ">
+        <LampContainer>
+          <div className="-mt-10">
+            <AnimatedText
+              title="Welcome to Monad Lore!"
+              delay={1}
+              bold={true}
+              duration={0.2}
+            />
+            <AnimateOpacity
+              title="Monad Lore has been created for and by Monad's community"
+              delay={1.8}
+              duration={0.4}
+              id="subtitle-el"
+            />
+            <AnimateOpacity
+              title={<Button className="z-10 mt-10">Join Community</Button>}
+              delay={2.6}
+              duration={0.4}
+              id="button-el"
+            />
+          </div>
+        </LampContainer>
+        {/* <ExtraLargeFont className="z-10 pointer-events-none text-[100px] font-extrabold">
           Welcome to Monad Lore!
-        </ExtraLargeFont>
-        <LargeFont className="z-10 text-60 pointer-events-none">
-          This is a project created for and by the Monad Discord Community
-        </LargeFont>
-        <Button className="z-10 mt-10">Join Community</Button>
+        </ExtraLargeFont> */}
       </div>
       <div className="flex flex-col justify-center items-center h-screen w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none">
-          What are those creature?
+          Select your team now!
         </LargeFont>
-        <LargeFont className="z-10 text-80 mt-10 pointer-events-none">
-          Some strange creature appear on the Monad Discord, but what are they?
+        <LargeFont className="z-10 text-80 mt-10 pointer-events-none max-w-[1000px] text-center">
+          Select a character to begin with. By choosing a team you will be able
+          to help this house to earn points by winning chess games!
         </LargeFont>
+
         <div className="max-w-[1200px] flex w-full justify-between mt-[100px] z-10">
-          {characters.map((character) => (
-            <BoxCharacter key={character.title} content={character} />
-          ))}
+          {characters
+            .filter((_, i) => i < 3)
+            .map((character) => (
+              <Card key={character.title} content={character} />
+            ))}
         </div>
       </div>
-      <div className="fixed top-0 z-1">
+      <div className="flex justify-center"></div>
+      {/* <div className="fixed top-0 z-1">
         <BackgroundGradientAnimation />
-      </div>
+      </div> */}
+
+      {isLoading ? null : <HeroParallax products={memesFormatted || []} />}
 
       {/* // <GeminiEffect pathLengths={pathLengths} />
     // <div>

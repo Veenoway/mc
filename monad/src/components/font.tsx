@@ -9,7 +9,7 @@ export const ExtraLargeFont = ({ children, className }: FontProps) => {
   return (
     <h1
       className={cn(
-        "text-90 text-[72px] font-bold tracking-tighter",
+        "text-90 text-[72px] font-bold tracking-tighter font-gramatika",
         className
       )}
     >
@@ -20,7 +20,7 @@ export const ExtraLargeFont = ({ children, className }: FontProps) => {
 
 export const SmallFont = ({ children, className }: FontProps) => {
   return (
-    <p className={cn("text-90 text-base tracking-tight", className)}>
+    <p className={cn("text-90 text-base  font-hoves-pro", className)}>
       {children}
     </p>
   );
@@ -28,7 +28,7 @@ export const SmallFont = ({ children, className }: FontProps) => {
 
 export const MediumFont = ({ children, className }: FontProps) => {
   return (
-    <p className={cn("text-90 text-xl tracking-tight", className)}>
+    <p className={cn("text-90 text-xl  font-hoves-pro", className)}>
       {children}
     </p>
   );
@@ -36,7 +36,7 @@ export const MediumFont = ({ children, className }: FontProps) => {
 
 export const LargeFont = ({ children, className }: FontProps) => {
   return (
-    <h2 className={cn("text-90 text-3xl tracking-tighter", className)}>
+    <h2 className={cn("text-90 text-3xl  font-hoves-pro", className)}>
       {children}
     </h2>
   );

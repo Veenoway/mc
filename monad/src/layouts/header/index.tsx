@@ -9,16 +9,27 @@ export const Header = () => {
             height="50"
             alt="Monad logo"
           />
-          <h1 className="text-white text-[24px] leading-9 ml-2">Monad Lore</h1>
+          <h1 className="text-white text-[24px] leading-9 ml-2 font-gramatika font-bold">
+            Monad Lore
+          </h1>
         </div>
         <nav className="flex items-center">
-          <a href="/" className="text-white text-[16px] leading-9 mr-5">
+          <a
+            href="/"
+            className="text-white text-[16px] leading-9 mr-5 font-hoves-pro-bold"
+          >
             Home
           </a>
-          <a href="/arts" className="text-white text-[16px] leading-9 mr-5">
+          <a
+            href="/arts"
+            className="text-white text-[16px] leading-9 mr-5 font-hoves-pro-bold"
+          >
             Community Arts
           </a>
-          <a href="/faq" className="text-white text-[16px] leading-9">
+          <a
+            href="/faq"
+            className="text-white text-[16px] leading-9 font-hoves-pro-bold"
+          >
             F.A.Q
           </a>
         </nav>

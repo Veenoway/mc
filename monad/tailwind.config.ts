@@ -10,11 +10,16 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Rowies", "sans-serif"],
+        gramatika: ["Gramatika", "sans-serif"],
+        "hoves-pro-bold": ["TT Hoves Pro DemiBold", "sans-serif"],
+        "hoves-pro-medium": ["TT Hoves Pro Medium", "sans-serif"],
+        "hoves-pro": ["TT Hoves Pro Regular", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        rockstar: "url('/backgrounds/rockstar.png')",
       },
       colors: {
         background: {
@@ -26,6 +31,11 @@ const config: Config = {
         "base-border": "rgba(255,255,255,0.05)",
         berry: "#A0055D",
         "berry-dark": "#b2387d",
+        cyan: "#5FEDDF",
+        "light-cyan": "#80f2e5",
+        "font-black": {
+          100: "rgba(0,0,0,0.95)",
+        },
         60: "rgba(255,255,255,0.6)",
         80: "rgba(255,255,255,0.8)",
         90: "rgba(255,255,255,0.9)",

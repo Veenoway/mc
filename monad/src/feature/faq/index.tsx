@@ -32,7 +32,7 @@ export const FAQ = () => {
 
   return (
     <div
-      className="py-[50px] h-auto min-h-screen"
+      className="py-[50px] h-auto min-h-screen pt-[100px]"
       style={{
         backgroundImage:
           "radial-gradient(at right bottom, #0d0021, #200052 80%, #200052)",
