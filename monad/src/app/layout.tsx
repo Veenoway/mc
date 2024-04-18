@@ -1,8 +1,14 @@
 import { Header } from "@/layouts/header";
 import ReactQueryProvider from "@/lib/react-query";
 import type { Metadata } from "next";
+import { Cinzel } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: "500",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactQueryProvider>
-        <body>
+        <body className={cinzel.className}>
           <Header />
           <main>{children}</main>
         </body>

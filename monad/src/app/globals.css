@@ -20,6 +20,11 @@
   src: url("/chemin/vers/TT_Hoves_Pro_Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "October";
+  src: url("/fonts/october.otf") format("otf");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,10 +100,6 @@ body {
   width: 150px;
   height: 150px;
   background-color: rebeccapurple;
-}
-
-.red {
-  background-color: red;
 }
 
 .description,
@@ -203,7 +204,6 @@ body {
 }
 
 .moving-right {
-  opacity: 0;
   transform: translateX(100%) scaleX(-100%);
 }
 
@@ -213,14 +213,32 @@ body {
   align-items: center;
   margin: 0 20px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  width: 370px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 358px;
   height: 487px;
   transform-style: preserve-3d;
-  background: url("https://t3.ftcdn.net/jpg/02/25/02/48/360_F_225024841_7b2gkqxIyskWsexHw19gIW9fro1iuOns.jpg");
+  box-shadow: 19px 17px 30px 3px rgba(0, 0, 0, 0.3);
+  /* background: url("/backgrounds/gradient-dark.png"); */
+  background-color: #381c64;
   background-size: cover;
   background-position: right;
 }
 .inner-element {
   transform: translateZ(60px);
+}
+
+.title {
+  opacity: 1;
+}
+
+.parallax-effect-glare-scale:nth-child(4) {
+  transform: translateX(-50%);
+}
+
+.parallax-effect-glare-scale:nth-child(2) {
+  transform: translateY(50%);
+}
+
+.parallax-effect-glare-scale:nth-child(3) {
+  transform: translateX(50%);
 }

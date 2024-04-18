@@ -14,6 +14,9 @@ const config: Config = {
         "hoves-pro-bold": ["TT Hoves Pro DemiBold", "sans-serif"],
         "hoves-pro-medium": ["TT Hoves Pro Medium", "sans-serif"],
         "hoves-pro": ["TT Hoves Pro Regular", "sans-serif"],
+        oswald: ["Oswald"],
+        october: ["October"],
+        bebas: ["Bebas Neue"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

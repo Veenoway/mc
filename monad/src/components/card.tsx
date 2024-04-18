@@ -1,111 +1,151 @@
-import { useState } from "react";
+import { cn } from "@/utils/cn";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { MediumFont, SmallFont } from "./font";
-// const defaultOptions = {
-//   reverse: false, // reverse the tilt direction
-//   max: 35, // max tilt rotation (degrees)
-//   perspective: 1200, // Transform perspective, the lower the more extreme the tilt gets.
-//   scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
-//   speed: 2000, // Speed of the enter/exit transition
-//   transition: true, // Set a transition on enter/exit.
-//   axis: null, // What axis should be disabled. Can be X or Y.
-//   reset: true, // If the tilt effect has to be reset on exit.
-//   easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-// };
+gsap.registerPlugin(ScrollTrigger);
 
 export const Card = ({ content }) => {
   const [isFliped, setIsFliped] = useState(false);
+  const [turned, setTurned] = useState(false);
+  const tiltRef = useRef(null);
+  const options = {
+    glareEnable: true,
+    glareMaxOpacity: 0.4,
+    glareColor: "#ccc4fc",
+    glarePosition: "all",
+    glareBorderRadius: "40px",
+    perspective: 1200,
+    scale: 1.1,
+    gyroscope: true,
+    transitionSpeed: 2000,
+    flipHorizontally: isFliped,
+  };
+
+  useEffect(() => {
+    if (tiltRef?.current) {
+      gsap.utils
+        .toArray(".parallax-effect-glare-scale")
+        .forEach((element, index) => {
+          gsap.to(element, {
+            x: 0,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: ".title",
+              start: "bottom 60%",
+              end: "bottom -10%",
+              markers: true,
+              scrub: true,
+              pinSpacing: true,
+              toggleActions: "restart none none none",
+              onUpdate: () => {
+                console.log(`Element ${index} triggered`);
+              },
+            },
+          });
+        });
+    }
+  }, [tiltRef]);
+
   return (
     <Tilt
-      //   options={defaultOptions}
-      glareEnable={true}
-      glareMaxOpacity={0.4}
-      glareColor="#ccc4fc"
-      glarePosition="all"
-      glareBorderRadius="40px"
-      perspective={1200}
-      scale={1.05}
-      gyroscope={true}
-      transitionSpeed={2000}
-      flipHorizontally={isFliped}
-      className="tiltcard shadow-2xl border bg-cover border-background-dark-purple rounded-2xl relative parallax-effect-glare-scale"
+      {...options}
+      className={cn(
+        "tiltcard bg-cover rounded-2xl relative parallax-effect-glare-scale "
+      )}
+      ref={tiltRef}
     >
-      {/* <div className="h-full w-full bg-berry rounded-xl z-0 absolute" /> */}
       <div
-        onClick={() => setIsFliped((prev) => !prev)}
-        className="z-1  rounded-[40px]"
-        style={{
-          width: "calc(100% - 30px)",
-          height: "calc(100% - 30px)",
-          background: `
-          linear-gradient(rgba(32, 0, 82, 0.5), rgba(32, 0, 82, 0.5)),
-          linear-gradient(rgba(32, 0, 82, 0.5), rgba(32, 0, 82, 0.5)),
-          url('https://uploads.codesandbox.io/uploads/user/85dbbc7c-600c-43e5-a118-06cc9f285d5e/2PKb-overlay.png')
-        `,
-          backgroundSize: "cover, contain",
-        }}
+        className="w-full relative h-full flex justify-center items-center idd"
+        // onClick={() => {
+        //   setTurned(true);
+        //   setIsFliped((prev) => !prev);
+        //   setTimeout(() => setTurned(false), isFliped ? 1000 : 200);
+        // }}
       >
-        {/* {isFliped ? (
+        {isFliped && !turned ? (
           <div className="flex items-center justify-center h-full w-full mb-5 relative ">
             <div className="h-fit w-fit rounded-full shadow-xl inner-element">
               <img height="150px" width="150px" src={content.logo} />
             </div>
           </div>
-        ) : ( */}
-
-        <div
-          className="flex h-[60px] px-2.5 pt-2.5 pb-[3px]"
-          //   style={{
-          //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
-          //   }}
-        >
-          <div className="h-full w-full flex items-center justify-center relative ">
-            <MediumFont className="text-90 uppercase font-gramatika font-bold mt-0.5">
-              {content.title}
-            </MediumFont>
-            <img
-              className="absolute top-2.5 right-[9px] "
-              height="30px"
-              width="30px"
-              src={content.logo}
-            />
-          </div>
-        </div>
-        <div
-          className="flex h-[260px]  px-2.5 pt-1.5 pb-[3px]"
-          //   style={{
-          //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
-          //   }}
-        >
+        ) : (
           <div
-            className=" h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.25)]
-           bg-cover rounded"
+            className="z-1 rounded-[40px]"
+            style={{
+              width: "calc(100% - 20px)",
+              height: "calc(100% - 20px)",
+              background: isFliped
+                ? ""
+                : `
+          linear-gradient(rgba(32, 0, 82, 0.5), rgba(32, 0, 82, 0.5)),
+          linear-gradient(rgba(32, 0, 82, 0.5), rgba(32, 0, 82, 0.5)),
+          url('/cards/card-dark.png')
+        `,
+              backgroundSize: "contain,contain, contain",
+            }}
           >
-            <img
-              className="rounded-md"
-              height="250px"
-              width="200px"
-              src={content.image}
-            />
-          </div>
-        </div>
-        <div
-          className="flex h-[25px] mt-[13px] mx-2.5 justify-between items-center"
-          //   style={{
-          //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
-          //   }}
-        >
-          <div className=" h-full flex items-center rounded w-[150px] px-2.5">
-            <SmallFont>{content.title}</SmallFont>
-          </div>
-          <div className=" h-full flex items-center rounded w-[150px] px-2.5">
-            <SmallFont>{content.title}</SmallFont>
-          </div>
-        </div>
-        <div className="flex h-[76px] px-2.5 pt-1.5 pb-[3px] mt-2.5 rounded-b-[28px] mx-2.5 p-2">
-          <SmallFont>{content.description}</SmallFont>
-        </div>
-        {/* <div
+            <div
+              className="flex h-[60px] px-2.5 pt-3 pb-[3px]"
+              //   style={{
+              //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
+              //   }}
+            >
+              <div className="h-full w-full flex items-center justify-center relative ">
+                <p className="text-90 text-xl uppercase font-bold mt-0.5 absolute top-2.5 left-[18px]">
+                  {content.rank}
+                </p>
+                <p className="uppercase text-90 text-xl font-bold mt-0.5">
+                  {content.title}
+                </p>
+                <img
+                  className="absolute top-3 right-3.5 "
+                  height="25px"
+                  width="25px"
+                  src={content.logo || "/monad_logo_purple.png"}
+                />
+              </div>
+            </div>
+            <div
+              className="flex h-[280px]  px-[11px] pt-1.5 pb-[3px]"
+              //   style={{
+              //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
+              //   }}
+            >
+              <div
+                className=" h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.25)]
+           bg-cover rounded border-4 border-[#381c75]"
+              >
+                <img
+                  className="w-full h-full object-cover"
+                  height="280px"
+                  width="200px"
+                  src={content.image}
+                />
+              </div>
+            </div>
+            <div
+              className="flex h-[25px] mt-[2px] mx-2.5 justify-between items-center"
+              //   style={{
+              //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
+              //   }}
+            >
+              <div className=" h-full flex items-center rounded w-[150px] px-2.5">
+                <p className="text-[13px] font-normal text-90 mt-[1px]">
+                  {content.rank_title}
+                </p>
+              </div>
+              <div className=" h-full flex items-center rounded w-[150px] px-2.5">
+                <p className="text-[13px] font-normal text-90 mt-[1px]">
+                  {content.spell}
+                </p>
+              </div>
+            </div>
+            <div className="flex h-[76px] px-2.5 pt-1.5 pb-[3px] mt-2.5 rounded-b-[28px] mx-2.5 p-2">
+              <p className="text-[13px] text-80">{content.description}</p>
+            </div>
+            {/* <div
           className="flex items-center justify-center h-full w-full mb-5 relative "
           //   style={{
           //     backdropFilter: "brightness(50%) saturate(220%) hue-rotate(220deg)",
@@ -129,7 +169,10 @@ export const Card = ({ content }) => {
             </MediumFont>
           </div>
         </div> */}
-        {/* )} */}
+            {/* )} */}
+          </div>
+        )}
+        {/* <div className="h-full w-full bg-berry rounded-xl z-0 absolute" /> */}
       </div>
     </Tilt>
   );
