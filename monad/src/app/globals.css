@@ -195,9 +195,32 @@ body {
 }
 
 .tiltcard {
-  width: 370px;
-  height: 520px;
+  /* width: 370px;
+  height: 520px; */
   margin: 0 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  /* border: 1px solid rgba(255, 255, 255, 0.08); */
+}
+
+.moving-right {
+  opacity: 0;
+  transform: translateX(100%) scaleX(-100%);
+}
+
+.parallax-effect-glare-scale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 370px;
+  height: 487px;
+  transform-style: preserve-3d;
+  background: url("https://t3.ftcdn.net/jpg/02/25/02/48/360_F_225024841_7b2gkqxIyskWsexHw19gIW9fro1iuOns.jpg");
+  background-size: cover;
+  background-position: right;
+}
+.inner-element {
+  transform: translateZ(60px);
 }

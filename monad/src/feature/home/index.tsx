@@ -4,12 +4,14 @@ import { AnimateOpacity } from "@/components/animated-opacity";
 import { AnimatedText } from "@/components/animated-text";
 import { Button } from "@/components/button";
 import { Card } from "@/components/card";
-import { LargeFont } from "@/components/font";
+import { ExtraLargeFont, LargeFont } from "@/components/font";
 import { HeroParallax } from "@/components/hero-parralax";
 import { LampContainer } from "@/components/lamp-effect";
 import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { ScrollTrigger, gsap } from "gsap/all";
+import { useEffect, useMemo } from "react";
 import { characters } from "./constant";
+gsap.registerPlugin(ScrollTrigger);
 
 export const Home = () => {
   const { data: memes, isLoading } = useQuery({
@@ -29,6 +31,97 @@ export const Home = () => {
         };
       });
   }, [memes]);
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".moving-right",
+      {
+        opacity: 0,
+        x: 100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".container-box",
+          start: "top 100%",
+          end: "top 20%",
+          markers: true,
+          toggleClass: "red",
+          scrub: true,
+          pinSpacing: true,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".moving-right",
+      {
+        opacity: 1,
+        x: 0,
+      },
+      {
+        opacity: 0,
+        x: 100,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".container-box",
+          start: "bottom 60%",
+          end: "bottom 0%",
+          markers: true,
+          toggleClass: "red",
+          scrub: true,
+          pinSpacing: true,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".moving-left",
+      {
+        opacity: 0,
+        x: -100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".container-box",
+          start: "top 100%",
+          end: "top 20%",
+          markers: true,
+          toggleClass: "red",
+          scrub: true,
+          pinSpacing: true,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".moving-left",
+      {
+        opacity: 1,
+        x: 0,
+      },
+      {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".container-box",
+          start: "bottom 60%",
+          end: "bottom 0%",
+          markers: true,
+          toggleClass: "red",
+          scrub: true,
+          pinSpacing: true,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  }, []);
 
   console.log("memememe", memesFormatted);
 
@@ -60,6 +153,27 @@ export const Home = () => {
         {/* <ExtraLargeFont className="z-10 pointer-events-none text-[100px] font-extrabold">
           Welcome to Monad Lore!
         </ExtraLargeFont> */}
+      </div>
+      <div className="w-screen bg-cover flex justify-center items-center bg-gradient-to-tr from-background-dark-purple to-background-purple h-[400px] z-10 bg-center relative overflow-hidden container-box">
+        <div className="bg-background-dark-purple z-10 h-[200px] w-[800px] absolute -rotate-[10deg] -top-[150px] -left-[150px] " />
+        <div className="bg-background-dark-purple z-10 h-[200px] w-[800px] absolute rotate-[10deg] -top-[150px] -right-[150px]" />
+        <div className="bg-background-dark-purple z-10 h-[200px] w-[800px] absolute rotate-[10deg] -bottom-[150px] -left-[150px]" />
+        <div className="bg-background-dark-purple z-10 h-[200px] w-[800px] absolute -rotate-[10deg] -bottom-[150px] -right-[150px]" />
+        <div className="flex justify-between absolute w-full">
+          <img
+            className="moving-left -translate-x-full opacity-0 z-0"
+            height="400"
+            width="350"
+            src="/mafia.webp"
+          />
+          <img
+            className="scale-x-[-1] z-0 moving-right translate-x-full opacity-0"
+            height="400"
+            width="350"
+            src="/mafia.webp"
+          />
+        </div>
+        <ExtraLargeFont>GMONAD</ExtraLargeFont>
       </div>
       <div className="flex flex-col justify-center items-center h-screen w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none">
