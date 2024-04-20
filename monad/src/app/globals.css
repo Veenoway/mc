@@ -242,3 +242,47 @@ body {
 .parallax-effect-glare-scale:nth-child(3) {
   transform: translateX(50%);
 }
+
+/* .slide-title {
+  transform: translateX(-100%);
+} */
+
+.home-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home-section:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(to top, #1c0522, transparent);
+  z-index: 1000;
+}
+
+.home-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.home-section img#moon {
+  mix-blend-mode: screen;
+}
+
+.home-section img#mountains_front {
+  z-index: 10;
+}

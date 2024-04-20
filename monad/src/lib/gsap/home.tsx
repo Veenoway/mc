@@ -25,7 +25,6 @@ export const callAnimation = () => {
       trigger: ".second-box",
       start: "top 100%",
       end: "bottom 100%",
-      markers: true,
       scrub: true,
       toggleActions: "restart none none none",
       //          onEnter, onLeave, onEnterBack, onLeaveBack
@@ -133,7 +132,6 @@ export const callAnimation = () => {
       trigger: ".second-box",
       start: "center 40%",
       end: "center -30%",
-      markers: true,
       scrub: true,
       toggleActions: "restart none none none",
       //          onEnter, onLeave, onEnterBack, onLeaveBack
@@ -215,7 +213,6 @@ export const callAnimation = () => {
       trigger: ".third-box",
       start: "center 40%",
       end: "center -30%",
-      markers: true,
       scrub: true,
       toggleActions: "restart none none none",
       //          onEnter, onLeave, onEnterBack, onLeaveBack

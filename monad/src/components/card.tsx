@@ -35,7 +35,6 @@ export const Card = ({ content }) => {
               trigger: ".title",
               start: "bottom 60%",
               end: "bottom -10%",
-              markers: true,
               scrub: true,
               pinSpacing: true,
               toggleActions: "restart none none none",
