@@ -251,11 +251,13 @@ export const Home = () => {
 
             <MediumFont className="max-w-[90%] text-80 mt-5">
               Delve into the rich history and lore surrounding the legendary
-              trio of heroes: Chog, Moyaki, and Molandak. Learn about their
-              heroic deeds, their epic battles, and the challenges they faced on
-              their journey to greatness. Uncover the secrets of their past and
-              how they continue to shape the destiny of Veeno and its
-              inhabitants.
+              trio of heroes: <span className="text-white font-bold">Chog</span>
+              , <span className="text-white font-bold">Moyaki</span>, and{" "}
+              <span className="text-white font-bold">Molandak</span>. Learn
+              about their heroic deeds, their epic battles, and the challenges
+              they faced on their journey to greatness. Uncover the secrets of
+              their past and how they continue to shape the destiny of Veeno and
+              its inhabitants.
             </MediumFont>
           </div>{" "}
           <div className="w-2/4 flex justify-center ">
@@ -376,13 +378,13 @@ export const Home = () => {
       </div>  */}
       {/* bg-gradient-to-tr from-background-dark-purple to-background-purple */}
       <div className="flex flex-col justify-center items-center pt-[150px] pb-[200px]  w-screen">
-        <LargeFont className="z-10 text-6xl font-bold pointer-events-none">
+        <LargeFont className="z-10 text-6xl font-bold pointer-events-none uppercase">
           Select your team now!
         </LargeFont>
-        <LargeFont className="z-10 text-80 mt-10 pointer-events-none max-w-[1000px] text-center">
+        <MediumFont className="z-10 text-80 mt-10 pointer-events-none max-w-[700px] text-center">
           Select a character to begin with. By choosing a team you will be able
           to help this house to earn points by winning chess games!
-        </LargeFont>
+        </MediumFont>
 
         <div className="max-w-[1200px] flex w-full justify-between mt-[100px] z-10">
           {characters.map((character, i) => (
