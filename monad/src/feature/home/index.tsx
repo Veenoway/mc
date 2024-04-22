@@ -8,7 +8,8 @@ import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { ScrollTrigger, gsap } from "gsap/all";
 import { useEffect, useMemo } from "react";
 import { ConnectPeople } from "./components/connect-people";
-import { characters } from "./constant";
+import { OddBox } from "./components/odd-box";
+import { characters, infos } from "./constant";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Home = () => {
@@ -240,89 +241,9 @@ export const Home = () => {
         </div>
       </div>
       <div className="w-full max-w-7xl flex flex-col mx-auto my-[350px]">
-        <div className="w-full flex items-center">
-          <div className="flex w-3/5 flex-col">
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              The Fabulous Story
-            </ExtraLargeFont>
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              of These Three Heroes
-            </ExtraLargeFont>
-
-            <MediumFont className="max-w-[90%] text-80 mt-5">
-              Delve into the rich history and lore surrounding the legendary
-              trio of heroes: <span className="text-white font-bold">Chog</span>
-              , <span className="text-white font-bold">Moyaki</span>, and{" "}
-              <span className="text-white font-bold">Molandak</span>. Learn
-              about their heroic deeds, their epic battles, and the challenges
-              they faced on their journey to greatness. Uncover the secrets of
-              their past and how they continue to shape the destiny of Veeno and
-              its inhabitants.
-            </MediumFont>
-          </div>{" "}
-          <div className="w-2/4 flex justify-center ">
-            <img
-              src="/illustration/samurai_pepe.jpeg"
-              height="350px"
-              width="350px"
-              className="object-cover h-[350px] rounded-lg shadow-2xl border-2 border-60"
-            />
-          </div>
-        </div>
-        <div className="w-full flex items-center my-[200px]">
-          <div className="w-2/4">
-            <img
-              src="/illustration/game.jpg"
-              height="350px"
-              width="350px"
-              className="object-cover h-[350px] rounded-lg shadow-2xl border-2 border-60"
-            />
-          </div>
-          <div className="flex w-3/5 flex-col">
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              Gaming Experience
-            </ExtraLargeFont>
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              Thrilling Competitions
-            </ExtraLargeFont>
-
-            <MediumFont className="max-w-[90%] text-80 mt-5">
-              In the Veeno universe, games and competitions take center stage.
-              Choose your favorite hero and join the house associated with them
-              to engage in a variety of stimulating challenges. From chess to
-              strategic trials, every victory you achieve strengthens your
-              house's position in the ongoing tournament.
-            </MediumFont>
-          </div>{" "}
-        </div>
-        <div className="w-full flex items-center">
-          <div className="flex w-3/5 flex-col">
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              Rewards -
-            </ExtraLargeFont>
-            <ExtraLargeFont className="font-gramatika text-[52px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[55px] slide-title">
-              Recognition
-            </ExtraLargeFont>
-
-            <MediumFont className="max-w-[90%] text-80 mt-5">
-              In this dynamic universe, effort and perseverance are rewarded as
-              they should be. Rewards are carefully distributed, acknowledging
-              not only the most successful house but also the efforts of all
-              participating houses. With fair fund distribution, every player
-              has the opportunity to contribute to their house's collective
-              success and shape their own destiny in this universe inspired by
-              the legends of Monad.
-            </MediumFont>
-          </div>{" "}
-          <div className="w-2/4 flex justify-center ">
-            <img
-              src="/illustration/gm.jpg"
-              height="350px"
-              width="350px"
-              className="object-cover h-[350px] rounded-lg shadow-2xl border-2 border-60"
-            />
-          </div>
-        </div>
+        {infos.map((content, i) => (
+          <OddBox content={content} odd={i % 2 === 1} />
+        ))}
       </div>
       {/* <div className="h-screen w-screen flex items-center relative bg-red-400 overflow-hidden">
         <img src="/parralax/skycc.png" className=" absolute z-0 top-0" />
