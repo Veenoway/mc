@@ -33,12 +33,19 @@ export const OddBox = ({ content, odd }) => {
               <SmallFont className="ml-5">Made by @Lorenzo</SmallFont>
             </div>{" "}
           </a>
-          <img
-            src={content.image}
-            height="350px"
-            width="350px"
-            className="object-cover h-[350px] rounded-lg"
-          />
+          <div className="w-full h-full relative">
+            <img
+              src="/test/pipeline.jpg"
+              className="h-[30px] w-[30px] absolute top-3.5 right-3.5 rounded-full"
+            />
+
+            <img
+              src="/test/char.jpg"
+              height="350px"
+              width="350px"
+              className="object-cover h-[350px] rounded-lg"
+            />
+          </div>
         </div>
       </div>
       <div className="flex w-3/5 flex-col">
