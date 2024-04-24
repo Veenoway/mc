@@ -286,3 +286,7 @@ body {
 .home-section img#mountains_front {
   z-index: 10;
 }
+
+.shadowText {
+  text-shadow: #000 1px 0 10px;
+}

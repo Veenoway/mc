@@ -4,19 +4,14 @@ import { InfoProps } from "../../models";
 
 type OddBoxType = {
   content: InfoProps;
-  odd?: boolean;
 };
 
-export const OddBox = ({ content, odd }: OddBoxType) => {
+export const OddBox = ({ content }: OddBoxType) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <div className="w-screen flex items-center justify-center h-screen">
-      <div
-        className={`w-full max-w-6xl  flex ${
-          odd ? "flex-row" : "flex-row-reverse"
-        } items-center my-[100px]`}
-      >
-        <div className={`w-2/4 flex ${odd ? "justify-start" : "justify-end"}`}>
+      <div className="w-full max-w-6xl flex items-center my-[100px]">
+        <div className="w-2/4 flex">
           <div
             className="flex overflow-hidden justify-center w-fit h-fit relative rounded-lg shadow-2xl border-2 border-60"
             onMouseEnter={() => setIsHover(true)}

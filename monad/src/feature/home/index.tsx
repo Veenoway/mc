@@ -53,7 +53,8 @@ export const Home = ({ memes }: HomeProps) => {
   });
 
   const translateYFirst = useSpring(
-    useTransform(scrollYFirst, [0, 1], [150, 0])
+    useTransform(scrollYFirst, [0, 1], [150, 0]),
+    springConfig
   );
 
   const translateYSec = useSpring(
@@ -91,15 +92,15 @@ export const Home = ({ memes }: HomeProps) => {
     };
   };
   const sliderRef = useRef(null);
+  const newRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sliderRef,
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-66%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
-    <div className="relative bg-[url('https://web.archive.org/web/20211118123617/https://www.illuvium.io/images/backgrounds/1440x900.jpg')] bg-fixed bg-cover overflow-hidden">
+    <div className="relative bg-[url('https://web.archive.org/web/20211118123617/https://www.illuvium.io/images/backgrounds/1440x900.jpg')] bg-fixed bg-cover">
       <div style={{ width: "100vw", height: "110vh" }}>
         <div
           style={{ width: "100%", height: "100%" }}
@@ -110,10 +111,7 @@ export const Home = ({ memes }: HomeProps) => {
           className="relative"
         >
           <div className="flex flex-col absolute top-[13%] left-1/2 -translate-x-1/2 z-10">
-            <ExtraLargeFont
-              style={{ textShadow: "#000 1px 0 10px;" }}
-              className="text-white text-center leading-[60px] text-7xl"
-            >
+            <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
               Welcome to Monad Lore!
             </ExtraLargeFont>
           </div>
@@ -138,14 +136,8 @@ export const Home = ({ memes }: HomeProps) => {
           />
         </div>
       </div>
-      {/* <motion.div
-        style={{
-          translateX: translateX,
-        }}
-        ref={machinRef}
-        className="bg-red-300 h-[400px] w-[400px] z-10"
-      ></motion.div> */}
-      {/* <div className=" flex flex-col mx-auto my-[350px] relative">
+
+      <div className=" flex flex-col mx-auto my-[350px] mb-[100px] relative">
         <div className="flex flex-col w-full items-center mb-[200px]">
           <LargeFont className="font-gramatika text-6xl uppercase font-bold text-black dark:text-white max-w-2/4 leading-[60px] slide-title">
             Embark on Your
@@ -159,17 +151,17 @@ export const Home = ({ memes }: HomeProps) => {
             universe where Chog, Moyaki, and Molandak come to life, leading you
             through exhilarating challenges and epic competitions.
           </MediumFont>{" "}
-        </div> */}
-      <div ref={sliderRef} className="h-[300vh] relative">
-        <div className="sticky top-0  left-0 flex items-center h-screen overflow-hidden bg-red-400">
-          <motion.div style={{ x }} className="flex bg-green-400">
-            {infos.map((content, i) => (
-              <OddBox content={content} odd={i % 2 === 1} />
-            ))}{" "}
-          </motion.div>
+        </div>
+        <div ref={sliderRef} className="h-[250vh] relative">
+          <div className="sticky top-0  left-0 flex items-center h-[screen] overflow-hidden ">
+            <motion.div style={{ x }} className="flex relative">
+              {infos.map((content, i) => (
+                <OddBox key={i} content={content} />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
-      {/* </div> */}
       <div className="flex flex-col justify-center items-center pb-[300px]  w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none uppercase">
           Select your team now!
@@ -196,7 +188,6 @@ export const Home = ({ memes }: HomeProps) => {
           })}
         </motion.div>
       </div>
-
       <HeroParallax memes={memes || []} />
       <ConnectPeople />
     </div>
