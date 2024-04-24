@@ -1,4 +1,5 @@
 "use client";
+import { AnimatedText } from "@/components/animated-text";
 import { Card } from "@/components/card";
 import { ExtraLargeFont, LargeFont, MediumFont } from "@/components/font";
 import { HeroParallax } from "@/components/hero-parralax";
@@ -10,6 +11,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import Lenis from "lenis";
 import { useRef } from "react";
 import { ConnectPeople } from "./components/connect-people";
 import { OddBox } from "./components/odd-box";
@@ -20,6 +22,17 @@ type HomeProps = { memes: ParralaxContentProps[] };
 
 export const Home = ({ memes }: HomeProps) => {
   const { scrollY } = useScroll();
+  const lenis = new Lenis();
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -137,8 +150,14 @@ export const Home = ({ memes }: HomeProps) => {
         </div>
       </div>
 
-      <div className=" flex flex-col mx-auto my-[350px] mb-[100px] relative">
-        <div className="flex flex-col w-full items-center mb-[200px]">
+      <div className=" flex flex-col mx-auto mt-[350px] mb-[100px] relative">
+        <div className="flex flex-col w-full items-center">
+          <AnimatedText
+            title={"Embark on Your"}
+            delay={0}
+            bold={true}
+            duration={1000}
+          />
           <LargeFont className="font-gramatika text-6xl uppercase font-bold text-black dark:text-white max-w-2/4 leading-[60px] slide-title">
             Embark on Your
           </LargeFont>

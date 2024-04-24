@@ -25,7 +25,7 @@ export const AnimatedText = ({ title, delay, bold, duration }) => {
   }, []);
 
   return (
-    <div className="container z-10 mb-8">
+    <div className="container z-[1000] mb-8">
       <div className="flex justify-center items-center">
         <h1
           id="title"
