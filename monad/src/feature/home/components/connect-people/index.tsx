@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/button";
 import { MediumFont } from "@/components/font";
 import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -94,13 +95,16 @@ export function ConnectPeople() {
           >
             worldwide
           </motion.h2>
-
           <MediumFont className="max-w-[90%] text-80 mt-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Perspiciatis soluta quas, quos, sequi omnis quaerat fugit
-            consectetur qui rerum quisquam quae non ea facilis, quia pariatur
-            assumenda distinctio quod accusamus?
+            Monad unifies the community worldwide. Wherever you are on the map,
+            you are an integral part of a movement that transcends borders and
+            cultural differences. Join Monad in this adventure where each
+            individual brings their own unique contribution to our community
+            fabric. Together, we form a vibrant and diverse global network.
           </MediumFont>
+          <Button url="https://discord.com/invite/monad" className="mt-5">
+            Join the Discord
+          </Button>
         </div>
         <div className="w-2/4 h-[600px]">
           <World data={sampleArcs} globeConfig={globeConfig} />

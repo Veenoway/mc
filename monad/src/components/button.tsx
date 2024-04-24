@@ -19,7 +19,7 @@ export const Button = ({ children, className, url, ...props }: ButtonProps) => {
       }}
       {...props}
     >
-      {url ? <a href="url">{children}</a> : children}
+      {url ? <a href={url}>{children}</a> : children}
     </button>
   );
 };

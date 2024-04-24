@@ -45,23 +45,23 @@ export const Home = ({ memes }: HomeProps) => {
   });
   const { scrollYProgress: scrollYSec } = useScroll({
     target: machinRef,
-    offset: ["0.1 1", "0.6 1"],
+    offset: ["0.15 1", "0.65 1"],
   });
   const { scrollYProgress: scrollYThird } = useScroll({
     target: machinRef,
-    offset: ["0.2 1", "0.7 1"],
+    offset: ["0.30 1", "0.8 1"],
   });
 
   const translateYFirst = useSpring(
-    useTransform(scrollYFirst, [0, 1], [500, 0])
+    useTransform(scrollYFirst, [0, 1], [150, 0])
   );
 
   const translateYSec = useSpring(
-    useTransform(scrollYSec, [0, 1], [500, 0]),
+    useTransform(scrollYSec, [0, 1], [150, 0]),
     springConfig
   );
   const translateYThird = useSpring(
-    useTransform(scrollYThird, [0, 1], [500, 0]),
+    useTransform(scrollYThird, [0, 1], [150, 0]),
     springConfig
   );
 
@@ -90,6 +90,13 @@ export const Home = ({ memes }: HomeProps) => {
       delay: 1,
     };
   };
+  const sliderRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sliderRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-66%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <div className="relative bg-[url('https://web.archive.org/web/20211118123617/https://www.illuvium.io/images/backgrounds/1440x900.jpg')] bg-fixed bg-cover overflow-hidden">
@@ -138,7 +145,7 @@ export const Home = ({ memes }: HomeProps) => {
         ref={machinRef}
         className="bg-red-300 h-[400px] w-[400px] z-10"
       ></motion.div> */}
-      <div className="w-full max-w-7xl flex flex-col mx-auto my-[350px]">
+      {/* <div className=" flex flex-col mx-auto my-[350px] relative">
         <div className="flex flex-col w-full items-center mb-[200px]">
           <LargeFont className="font-gramatika text-6xl uppercase font-bold text-black dark:text-white max-w-2/4 leading-[60px] slide-title">
             Embark on Your
@@ -152,11 +159,17 @@ export const Home = ({ memes }: HomeProps) => {
             universe where Chog, Moyaki, and Molandak come to life, leading you
             through exhilarating challenges and epic competitions.
           </MediumFont>{" "}
+        </div> */}
+      <div ref={sliderRef} className="h-[300vh] relative">
+        <div className="sticky top-0  left-0 flex items-center h-screen overflow-hidden bg-red-400">
+          <motion.div style={{ x }} className="flex bg-green-400">
+            {infos.map((content, i) => (
+              <OddBox content={content} odd={i % 2 === 1} />
+            ))}{" "}
+          </motion.div>
         </div>
-        {infos.map((content, i) => (
-          <OddBox content={content} odd={i % 2 === 1} />
-        ))}
       </div>
+      {/* </div> */}
       <div className="flex flex-col justify-center items-center pb-[300px]  w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none uppercase">
           Select your team now!
