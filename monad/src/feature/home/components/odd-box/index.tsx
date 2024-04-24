@@ -1,7 +1,16 @@
 import { ExtraLargeFont, MediumFont, SmallFont } from "@/components/font";
 import { useState } from "react";
 
-export const OddBox = ({ content, odd }) => {
+type OddBoxType = {
+  content: {
+    title_1: string;
+    title_2: string;
+    description: string;
+  };
+  odd?: boolean;
+};
+
+export const OddBox = ({ content, odd }: OddBoxType) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <div
