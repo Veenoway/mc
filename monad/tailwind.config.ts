@@ -23,6 +23,8 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         rockstar: "url('/backgrounds/rockstar.png')",
+        gradientUrl: "url('/backgrounds/gradient-r-light.png')",
+        line: "url('/background.png')",
       },
       colors: {
         background: {

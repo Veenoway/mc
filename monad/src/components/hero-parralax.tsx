@@ -1,5 +1,6 @@
 "use client";
-import { BoxCharacter } from "@/feature/home/components/box-character";
+import { ParralaxContentProps } from "@/feature/home/models";
+import { getRandom } from "@/utils/random";
 import {
   MotionValue,
   motion,
@@ -7,21 +8,18 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    url: string;
-    image: string;
-  }[];
-}) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+type HeroParallaxProps = {
+  memes: ParralaxContentProps[];
+};
+
+export const HeroParallax = ({ memes }: HeroParallaxProps) => {
+  const firstRow = memes.slice(0, 5);
+  const secondRow = memes.slice(5, 10);
+  const thirdRow = memes.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -51,13 +49,13 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-700, 100]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[230vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -67,33 +65,24 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
+          {firstRow.map((meme) => (
+            <MemeCard meme={meme} translate={translateX} key={meme.title} />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <ProductCard
-              product={product}
+        <motion.div className="flex flex-row mb-10 space-x-20 ">
+          {secondRow.map((meme) => (
+            <MemeCard
+              meme={meme}
               translate={translateXReverse}
-              key={product.title}
+              key={meme.title}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
+          {thirdRow.map((meme) => (
+            <MemeCard meme={meme} translate={translateX} key={meme.title} />
           ))}
         </motion.div>
       </motion.div>
@@ -103,31 +92,29 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white font-gramatika">
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full z-10 left-0 top-0">
+      <h1 className="text-2xl md:text-7xl font-bold text-white font-gramatika">
         Discover Arts & Meme <br /> made by community
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 font-hoves-pro-bold">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime quae
-        provident sed dignissimos. Alias numquam distinctio magnam ut quaerat?
-        Commodi rerum voluptatibus sapiente facere perferendis beatae, corporis
-        placeat consequatur odio.
+      <p className="max-w-2xl text-base md:text-xl mt-8 text-white font-hoves-pro-bold">
+        Explore a curated selection of creative artworks and memes, all crafted
+        by our vibrant community. Immerse yourself in a world of creativity and
+        humor where everyone brings their own unique touch.
       </p>
     </div>
   );
 };
 
-export const ProductCard = ({
-  product,
+export const MemeCard = ({
+  meme,
   translate,
 }: {
-  product: {
-    title: string;
-    url: string;
-    image: string;
-  };
+  meme: ParralaxContentProps;
   translate: MotionValue<number>;
 }) => {
+  const [hasError, setHasError] = useState(false);
+  const images = ["/chog.png", "/moyaki.png", "/molandak.png"];
+  const errorImage = getRandom(images);
   return (
     <motion.div
       style={{
@@ -136,22 +123,30 @@ export const ProductCard = ({
       whileHover={{
         y: -20,
       }}
-      key={product.title}
-      className="group/product h-[420px] w-[25rem] relative flex-shrink-0"
+      key={meme.title}
+      className="group/product h-[405px] w-[25rem] relative flex-shrink-0"
     >
-      <Link
-        href={product.url}
-        className="block group-hover/product:shadow-2xl "
-      >
-        <BoxCharacter
-          className="object-cover object-left-top absolute w-full inset-0 rounded-2xl"
-          content={product}
-        />
+      <Link href={meme.url} className="block group-hover/product:shadow-2xl ">
+        <div className="flex flex-col backdrop-filter backdrop-blur-lg w-[450px] bg-line bg-cover bg-center shadow-2xl rounded-xl border-2 border-base-border object-cover object-left-top absolute inset-0">
+          <Image
+            width="200"
+            height="200"
+            className="mx-auto object-cover rounded-t-xl w-[450px] h-[350px]"
+            src={hasError ? errorImage : meme.image}
+            alt={`${meme.title} image`}
+            onError={() => setHasError(true)}
+          />
+          <div className="flex items-center justify-center px-5 py-3">
+            <h3 className="text-white text-xl text-center font-bold font-gramatika">
+              {meme.title}
+            </h3>
+          </div>
+        </div>
       </Link>
-      <div className="absolute inset-0 h-full p-5 w-full opacity-0 group-hover/product:opacity-80 bg-background-dark-purple pointer-events-none rounded-2xl transition-all duration-300"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white max-w-[90%] text-base font-gramatika">
-        {product.title}
-      </h2>
+      {/* <div className="absolute inset-0 h-full p-5 w-full opacity-0 group-hover/product:opacity-80 bg-background-dark-purple pointer-events-none rounded-2xl transition-all duration-300"></div> */}
+      {/* <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white max-w-[90%] text-base font-gramatika">
+        {meme.title}
+      </h2> */}
     </motion.div>
   );
 };

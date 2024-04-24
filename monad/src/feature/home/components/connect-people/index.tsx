@@ -23,11 +23,7 @@ export function ConnectPeople() {
     target: secTitleRef,
     offset: ["0 1", "5 1"],
   });
-  //   const scaleX = useSpring(scrollYProgress, {
-  //     stiffness: 100,
-  //     damping: 30,
-  //     restDelta: 0.001,
-  //   });
+
   const globeConfig = {
     pointSize: 10,
     globeColor: "#836EF9",

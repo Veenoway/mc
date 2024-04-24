@@ -1,4 +1,6 @@
-export const characters = [
+import { CharacterProps, InfoProps } from "./models";
+
+export const characters: CharacterProps[] = [
   {
     image: "/cards/moyaki.jpg",
     title: "Moyaki",
@@ -37,7 +39,7 @@ export const characters = [
   },
 ];
 
-export const infos = [
+export const infos: InfoProps[] = [
   {
     image: "/illustration/samurai_pepe.jpeg",
     title_1: "The Fabulous Story",

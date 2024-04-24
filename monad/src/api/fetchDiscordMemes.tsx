@@ -15,9 +15,6 @@ export const fetchDiscordMemes = async () => {
     }
   );
   const resp = await query;
-
-  console.log("resp", resp);
-
   return resp.json();
 };
 

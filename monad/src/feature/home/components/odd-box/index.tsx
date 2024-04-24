@@ -1,12 +1,9 @@
 import { ExtraLargeFont, MediumFont, SmallFont } from "@/components/font";
 import { useState } from "react";
+import { InfoProps } from "../../models";
 
 type OddBoxType = {
-  content: {
-    title_1: string;
-    title_2: string;
-    description: string;
-  };
+  content: InfoProps;
   odd?: boolean;
 };
 
@@ -16,7 +13,7 @@ export const OddBox = ({ content, odd }: OddBoxType) => {
     <div
       className={`w-full flex ${
         odd ? "flex-row" : "flex-row-reverse"
-      } items-center my-[200px]`}
+      } items-center my-[100px]`}
     >
       <div className={`w-2/4 flex ${odd ? "justify-start" : "justify-end"}`}>
         <div

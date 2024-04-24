@@ -36,7 +36,7 @@ export const MediumFont = ({ children, className }: FontProps) => {
 
 export const LargeFont = ({ children, className }: FontProps) => {
   return (
-    <h2 className={cn("text-90 text-3xl  font-hoves-pro", className)}>
+    <h2 className={cn("text-90 text-3xl font-hoves-pro", className)}>
       {children}
     </h2>
   );

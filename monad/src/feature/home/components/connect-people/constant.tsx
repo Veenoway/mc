@@ -1,4 +1,6 @@
-export const getArcs = (colors: string[]) => [
+import { Arcs } from "../../models";
+
+export const getArcs = (colors: string[]): Arcs[] => [
   {
     order: 1,
     startLat: -19.885592,
