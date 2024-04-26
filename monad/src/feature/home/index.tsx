@@ -1,5 +1,4 @@
 "use client";
-import { AnimatedText } from "@/components/animated-text";
 import { Card } from "@/components/card";
 import { ExtraLargeFont, LargeFont, MediumFont } from "@/components/font";
 import { HeroParallax } from "@/components/hero-parralax";
@@ -152,19 +151,13 @@ export const Home = ({ memes }: HomeProps) => {
 
       <div className=" flex flex-col mx-auto mt-[350px] mb-[100px] relative">
         <div className="flex flex-col w-full items-center">
-          <AnimatedText
-            title={"Embark on Your"}
-            delay={0}
-            bold={true}
-            duration={1000}
-          />
-          <LargeFont className="font-gramatika text-6xl uppercase font-bold text-black dark:text-white max-w-2/4 leading-[60px] slide-title">
+          <LargeFont className="font-gramatika text-[100px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
             Embark on Your
           </LargeFont>
-          <LargeFont className="font-gramatika text-6xl uppercase font-bold text-black dark:text-white max-w-2/4 leading-[60px] slide-title">
+          <LargeFont className="font-gramatika text-[100px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
             Legendary Journey
           </LargeFont>
-          <MediumFont className="text-white text-center mt-5 max-w-4xl w-[95%]">
+          <MediumFont className="text-white text-center mt-9 max-w-4xl w-[95%]">
             Step into a realm of adventure and mystery, inspired by the
             legendary characters of Monad. Immerse yourself in this captivating
             universe where Chog, Moyaki, and Molandak come to life, leading you
