@@ -120,12 +120,33 @@ export const Home = ({ memes }: HomeProps) => {
             mouseX.set(event.clientX);
             mouseY.set(event.clientY);
           }}
-          className="relative"
+          className="relative overflow-x-hidden"
         >
-          <div className="flex flex-col absolute top-[13%] left-1/2 -translate-x-1/2 z-10">
+          <div className="flex items-center absolute top-[16%] left-1/2 -translate-x-1/2 z-10 w-full justify-center">
+            {/* <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
+              MONAD X DEMASK
+            </ExtraLargeFont> */}
+            <img
+              src="https://cdn.galxe.com/galaxy/a52ff36ea62544e9aac470ceaedddf3e/.jpeg_thumbnail.webp"
+              height="80"
+              width="80"
+              className="rounded-full border border-base-border shadow-2xl mr-5"
+            />
             <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
-              Welcome to Monad Lore!
+              DEMASK
             </ExtraLargeFont>
+            <ExtraLargeFont className="shadowText mx-5 text-white text-center leading-[60px] text-7xl">
+              x
+            </ExtraLargeFont>
+            <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
+              MONADIANS
+            </ExtraLargeFont>
+            <img
+              src="https://pbs.twimg.com/profile_images/1739215796738326528/XxFqmbpF_400x400.jpg"
+              height="80"
+              width="80"
+              className="rounded-full  ml-5 border border-base-border shadow-2xl"
+            />
           </div>
           <motion.img
             src="/parralax/skycc.png"

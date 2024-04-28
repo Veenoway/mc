@@ -32,19 +32,12 @@ export function ConnectPeople() {
   });
   const { scrollYProgress: scrollBtn } = useScroll({
     target: buttonRef,
-    offset: ["1.5 1", "2.3 1"],
+    offset: ["1.5 1", "2 1"],
   });
 
-  const opacityProgress = useTransform(scrollFirst, [0, 1], [0, 1]);
   const slideProgress = useTransform(scrollFirst, [0, 1], ["-50%", "0%"]);
   const slideProgressSec = useTransform(scrollFirst, [0, 1], ["-50%", "0%"]);
-  const opacityProgressSec = useTransform(scrollSec, [0, 1], [0, 1]);
 
-  const opacityProgressDescription = useTransform(
-    scrollDescription,
-    [0, 1],
-    [0, 1]
-  );
   const globeConfig = {
     pointSize: 10,
     globeColor: "#836EF9",
@@ -76,7 +69,7 @@ export function ConnectPeople() {
         <div className="w-2/4 slide-title">
           <motion.h2
             style={{
-              opacity: opacityProgress,
+              opacity: scrollFirst,
               y: slideProgress,
             }}
             ref={firstTitleRef}
@@ -86,7 +79,7 @@ export function ConnectPeople() {
           </motion.h2>
           <motion.h2
             style={{
-              opacity: opacityProgressSec,
+              opacity: scrollSec,
               y: slideProgress,
             }}
             ref={secTitleRef}
