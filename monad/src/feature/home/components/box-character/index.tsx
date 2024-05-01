@@ -2,17 +2,20 @@ import { cn } from "@/utils/cn";
 import { getRandom } from "@/utils/random";
 import Image from "next/image";
 import { useState } from "react";
+import { z } from "zod";
 
-type BoxCharacterProps = {
-  content: {
-    title: string;
-    url: string;
-    image: string;
-  };
-  className?: string;
-};
+const BoxCharacterProps = z.object({
+  content: z.object({
+    title: z.string(),
+    url: z.string(),
+    image: z.string(),
+  }),
+  className: z.string().optional(),
+});
 
-export const BoxCharacter = ({ content, className }: BoxCharacterProps) => {
+type BoxCharacterType = z.infer<typeof BoxCharacterProps>;
+
+export const BoxCharacter = ({ content, className }: BoxCharacterType) => {
   const [hasError, setHasError] = useState(false);
   const images = ["/chog.png", "/moyaki.png", "/molandak.png"];
   const errorImage = getRandom(images);

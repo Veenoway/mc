@@ -1,14 +1,18 @@
-export type CharacterProps = {
-  image: string;
-  title: string;
-  description: string;
-  url: string;
-  logo: string;
-  background: string;
-  rank_title: string;
-  rank: number;
-  spell: string;
-};
+import { z } from "zod";
+
+export type CharacterProps = z.infer<typeof Characters>;
+
+const Characters = z.object({
+  image: z.string(),
+  title: z.string(),
+  description: z.string(),
+  url: z.string(),
+  logo: z.string(),
+  background: z.string(),
+  rank_title: z.string(),
+  rank: z.number(),
+  spell: z.string(),
+});
 
 export type InfoProps = {
   title_1: string;

@@ -28,7 +28,9 @@
     "tailwind-merge": "^2.2.2",
     "three": "^0.163.0",
     "three-globe": "^2.31.0",
-    "vanilla-tilt": "^1.8.1"
+    "vanilla-tilt": "^1.8.1",
+    "z": "^1.0.9",
+    "zod": "^3.23.5"
   },
   "devDependencies": {
     "@types/node": "^20",
