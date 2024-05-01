@@ -22,11 +22,8 @@ type HomeProps = { memes: ParralaxContentProps[] };
 export const Home = ({ memes }: HomeProps) => {
   const { scrollY } = useScroll();
   const lenis = new Lenis();
-  lenis.on("scroll", (e) => {
-    console.log(e);
-  });
 
-  function raf(time) {
+  function raf(time: number) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
@@ -83,6 +80,14 @@ export const Home = ({ memes }: HomeProps) => {
     translate: MotionValue;
     delay: number;
   };
+
+  // const AnimationProps = z.object({
+  //   position: z.string(),
+  //   translate: MotionValue,
+  //   delay: z.number(),
+  // });
+
+  // type AnimationType = z.infer<typeof AnimationProps>;
 
   const getAnimationStyle = (i: number): AnimationStyle => {
     if (i === 0)
