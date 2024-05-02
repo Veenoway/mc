@@ -1,6 +1,6 @@
-import { Arcs } from "../../models";
+import { ArcsProps } from "../../models";
 
-export const getArcs = (colors: string[]): Arcs[] => [
+export const getArcs = (colors: string[]): ArcsProps[] => [
   {
     order: 1,
     startLat: -19.885592,

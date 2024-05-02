@@ -1,9 +1,9 @@
 import { ExtraLargeFont, MediumFont, SmallFont } from "@/components/font";
 import { useState } from "react";
-import { InfoProps } from "../../models";
+import { InfosProps } from "../../models";
 
 type OddBoxType = {
-  content: InfoProps;
+  content: InfosProps;
 };
 
 export const OddBox = ({ content }: OddBoxType) => {

@@ -117,7 +117,7 @@ export const Home = ({ memes }: HomeProps) => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-66%"]);
 
   return (
-    <div className="relative bg-[url('https://web.archive.org/web/20211118123617/https://www.illuvium.io/images/backgrounds/1440x900.jpg')] bg-fixed bg-cover">
+    <div className="relative bg-[url('/parralax/fgg.png')] bg-fixed bg-cover">
       <div style={{ width: "100vw", height: "110vh" }}>
         <div
           style={{ width: "100%", height: "100%" }}
@@ -127,33 +127,46 @@ export const Home = ({ memes }: HomeProps) => {
           }}
           className="relative overflow-x-hidden"
         >
-          <div className="flex items-center absolute top-[16%] left-1/2 -translate-x-1/2 z-10 w-full justify-center">
+          <div className="flex  items-center absolute top-[46%] -left-[100px] z-10 w-full justify-center">
             {/* <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
               MONAD X DEMASK
             </ExtraLargeFont> */}
-            <img
-              src="https://cdn.galxe.com/galaxy/a52ff36ea62544e9aac470ceaedddf3e/.jpeg_thumbnail.webp"
-              height="80"
-              width="80"
-              className="rounded-full border border-base-border shadow-2xl mr-5"
-            />
-            <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
-              DEMASK
-            </ExtraLargeFont>
-            <ExtraLargeFont className="shadowText mx-5 text-white text-center leading-[60px] text-7xl">
+            <div className="flex items-center">
+              <img
+                src="https://pbs.twimg.com/profile_images/1739215796738326528/XxFqmbpF_400x400.jpg"
+                height="70"
+                width="70"
+                className="rounded-full  border border-base-border shadow-2xl"
+              />
+              <ExtraLargeFont className="shadowText ml-5 text-[rgba(0,0,0,1)] text-center leading-[60px] text-6xl">
+                MONADIANS
+              </ExtraLargeFont>
+            </div>
+            <div className="flex items-center mx-5">
+              <div className="bg-white h-2 w-4 rounded-l-md" />
+              <div className="bg-black h-2 w-4 rounded-r-md" />
+            </div>
+            <div className="flex items-center">
+              <ExtraLargeFont
+                style={{
+                  "text-shadow": "1px 2px 10px #000000",
+                }}
+                className="shadowText text-white text-center leading-[60px] text-6xl"
+              >
+                DEMASK
+              </ExtraLargeFont>{" "}
+              <img
+                src="https://cdn.galxe.com/galaxy/a52ff36ea62544e9aac470ceaedddf3e/.jpeg_thumbnail.webp"
+                height="70"
+                width="70"
+                className="rounded-full border border-base-border shadow-2xl ml-5"
+              />
+            </div>
+            {/* <ExtraLargeFont className="shadowText mx-5 text-white text-center leading-[60px] text-7xl">
               x
-            </ExtraLargeFont>
-            <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
-              MONADIANS
-            </ExtraLargeFont>
-            <img
-              src="https://pbs.twimg.com/profile_images/1739215796738326528/XxFqmbpF_400x400.jpg"
-              height="80"
-              width="80"
-              className="rounded-full  ml-5 border border-base-border shadow-2xl"
-            />
+            </ExtraLargeFont> */}
           </div>
-          <motion.img
+          {/* <motion.img
             src="/parralax/skycc.png"
             className="absolute z-0 top-0"
           />
@@ -168,10 +181,10 @@ export const Home = ({ memes }: HomeProps) => {
             style={{ x: xOffset2, y: yOffset2, scale }}
           />
           <motion.img
-            src="/parralax/FGchog.png"
-            className="absolute -bottom-[10vh] z-3 scale-105"
+            src="/parralax/FG1.png"
+            className="absolute -bottom-[0vh] z-3 scale-105"
             style={{ x: xOffset1, y: yOffset1, scale }}
-          />
+          /> */}
         </div>
       </div>
 
