@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 
+import "hardhat/console.sol";
 
 contract Chess {
     uint[8] board;
@@ -24,24 +25,25 @@ contract Chess {
                 uint boardNumberIndex = i + 1;
                 string memory letter = letters[j];
 
-                if(boardNumberIndex == 2 || boardNumberIndex == 7) {
-                    pushToFinalBoard(letter, boardNumberIndex,"Pawn");
-                } else if(boardNumberIndex == 1 || boardNumberIndex == 8) {
-                    if(letter == "a" || letter == "h") {
+                if(boardNumberIndex == 1 || boardNumberIndex == 8) {
+                    bytes32 parsedLetter = parseString(letter);
+
+                    if(parsedLetter == parseString("a") || parsedLetter == parseString("h")) {
                       pushToFinalBoard(letter, boardNumberIndex,"Rook");
-                    } else if(letter == "b" || letter == "g") {
+                    } else if(parsedLetter == parseString("b") || parsedLetter == parseString("g")) {
                       pushToFinalBoard(letter, boardNumberIndex,"Knight");
-                    } else if(letter == "c" || letter == "f") {
+                    } else if(parsedLetter == parseString("c") || parsedLetter == parseString("f")) {
                        pushToFinalBoard(letter, boardNumberIndex,"Bishop");
-                    } else if(letter == "d") {
+                    } else if(parsedLetter == parseString("d")) {
                        pushToFinalBoard(letter, boardNumberIndex,"Queen");
-                    } else {
+                    } else if(parsedLetter == parseString("e")) {
                       pushToFinalBoard(letter, boardNumberIndex,"King");
                     }
+                } else if(boardNumberIndex == 2 || boardNumberIndex == 7) {
+                    pushToFinalBoard(letter, boardNumberIndex,"Pawn");
                 } else {
                   pushToFinalBoard(letter, boardNumberIndex,"");
                 }
-             
             }
         }
     }
@@ -50,9 +52,13 @@ contract Chess {
       finalBoard.push(FinalBoard(_letter, _index, _piece));
     }
 
+    function parseString(string memory _letter) pure  internal returns (bytes32) {
+      return keccak256(abi.encode(_letter));
+    }
+
     function getBoard(uint _i) public view returns(string memory, uint, string memory) {
-      // FinalBoard memory result = finalBoard[_i];
-      return (finalBoard[_i].letter, finalBoard[_i].number,finalBoard[_i].piece);
+      FinalBoard memory result = finalBoard[_i];
+      return (result.letter, result.number,result.piece);
     }
 
 }
