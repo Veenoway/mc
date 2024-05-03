@@ -6,9 +6,9 @@ import "hardhat/console.sol";
 contract Chess {
     uint[8] xAxis;
     uint[8] yAxis;
-    FinalBoard[] public finalBoard;
+    PiecePosition[] public finalBoard;
     
-    struct FinalBoard {
+    struct PiecePosition {
         uint xAxis;
         uint yAxis;
         string piece;
@@ -42,12 +42,31 @@ contract Chess {
         }
     }
 
-    function verifyLegalMove() internal returns(bool) {
-     
+    event ValueLogged(string message, int256 dx);
+
+    function checkLegalMove(uint _xFrom, uint _yFrom, uint _xTo, uint _yTo, string memory _piece)  public returns(bool) {
+        int256 dx = int256(_xTo) - int256(_xFrom);
+        int256 dy = int256(_yTo) - int256(_yFrom);
+        emit ValueLogged("Value is DX: ", dx);
+        emit ValueLogged("Value is DY: ", dy);
+        if(parseString(_piece) == parseString("Knight") ) {
+            if((dy == 2 && dx == 1) || 
+            (dy == 1 && dx == 2) || 
+            (dy == -2 && dx == -1) || 
+            (dy == -2 && dx == 1) || 
+            (dy == -1 && dx == -2) || 
+            (dy == -1 && dx == 2) || 
+            (dy == 2 && dx == -1) || 
+            (dy == 1 && dx == -2)) {
+              return true;
+             } 
+             return false;
+        }
+        return false;
     }
 
     function pushToFinalBoard(uint _y, uint _x, string memory _piece) internal {
-      finalBoard.push(FinalBoard(_y, _x, _piece));
+      finalBoard.push(PiecePosition(_y, _x, _piece));
     }
 
     function parseString(string memory _letter) pure  internal returns (bytes32) {
@@ -55,7 +74,7 @@ contract Chess {
     }
 
     function getBoard(uint _i) public view returns(uint, uint, string memory) {
-      FinalBoard memory result = finalBoard[_i];
+      PiecePosition memory result = finalBoard[_i];
       return (result.yAxis, result.xAxis,result.piece);
     }
 
