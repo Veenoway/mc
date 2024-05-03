@@ -44,24 +44,14 @@ contract Chess {
 
     event ValueLogged(string message, int256 dx);
 
-    function checkLegalMove(uint _xFrom, uint _yFrom, uint _xTo, uint _yTo, string memory _piece, bool _isFirstMove)  public returns(bool) {
-        int256 dx = int256(_xTo) - int256(_xFrom);
-        int256 dy = int256(_yTo) - int256(_yFrom);
-        emit ValueLogged("Value is DX: ", dx);
-        emit ValueLogged("Value is DY: ", dy);
-        uint absDx = absolute(dx);
-        uint absDy = absolute(dy);
+    function checkLegalMove(uint _xFrom, uint _yFrom, uint _xTo, uint _yTo, string memory _piece, bool _isFirstMove) pure public returns(bool) {
+        int dx = int(_xTo) - int(_xFrom);
+        int dy = int(_yTo) - int(_yFrom);
+        int absDx = absolute(dx);
+        int absDy = absolute(dy);
+
         if(parseString(_piece) == parseString("Knight") ) {
-            if((dy == 2 && dx == 1) || 
-            (dy == 1 && dx == 2) || 
-            (dy == -2 && dx == -1) || 
-            (dy == -2 && dx == 1) || 
-            (dy == -1 && dx == -2) || 
-            (dy == -1 && dx == 2) || 
-            (dy == 2 && dx == -1) || 
-            (dy == 1 && dx == -2)) {
-              return true;
-             } 
+            if(absDx == 1 && absDy == 2 || absDx == 2 && absDy == 1) return true;
              return false;
         } else if(parseString(_piece) == parseString("Bishop")) {
           if(absDy == absDx) return true;
@@ -75,8 +65,7 @@ contract Chess {
           return false;
         } else if(parseString(_piece) == parseString("Pawn")) {
           if (_isFirstMove) {
-            if (dy == 1 && dx == 0) return true; 
-            if (dy == 2 && dx == 0) return true; 
+            if (dy == 1 && dx == 0 || dy == 2 && dx == 0) return true;
             return false;
           } else {
             if (dy == 1 && dx == 0) return true; 
