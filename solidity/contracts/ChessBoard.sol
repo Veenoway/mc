@@ -71,6 +71,12 @@ contract Chess {
             if (dy == 1 && dx == 0) return true; 
             return false;
           }
+        } else if(parseString(_piece) == parseString("Queen")) {
+          if(((dx == 0 && dy != 0) || (dx != 0 && dy == 0) || (absolute(dx) == absolute(dy)))) {
+            // do something
+            return true;
+          }
+          return false;
         }
         return false;
     }
