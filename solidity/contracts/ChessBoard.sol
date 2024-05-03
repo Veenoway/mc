@@ -4,61 +4,59 @@ pragma solidity 0.8.20;
 import "hardhat/console.sol";
 
 contract Chess {
-    uint[8] board;
-    string[] letters;
+    uint[8] xAxis;
+    uint[8] yAxis;
     FinalBoard[] public finalBoard;
-
-    constructor() {
-      letters = ["a","b","c","d","e","f","g","h"];
-    }
     
     struct FinalBoard {
-        string letter;
-        uint number;
+        uint xAxis;
+        uint yAxis;
         string piece;
     }
 
     function initBoard() public {
-        for(uint i = 0; i < board.length; i++) {
-            for(uint j = 0; j < letters.length; j++){
+        for(uint i = 0; i < xAxis.length; i++) {
+            for(uint j = 0; j < yAxis.length; j++){
               
-                uint boardNumberIndex = i + 1;
-                string memory letter = letters[j];
+                uint xIndex = i + 1;
+                uint yIndex = j + 1;
 
-                if(boardNumberIndex == 1 || boardNumberIndex == 8) {
-                    bytes32 parsedLetter = parseString(letter);
-
-                    if(parsedLetter == parseString("a") || parsedLetter == parseString("h")) {
-                      pushToFinalBoard(letter, boardNumberIndex,"Rook");
-                    } else if(parsedLetter == parseString("b") || parsedLetter == parseString("g")) {
-                      pushToFinalBoard(letter, boardNumberIndex,"Knight");
-                    } else if(parsedLetter == parseString("c") || parsedLetter == parseString("f")) {
-                       pushToFinalBoard(letter, boardNumberIndex,"Bishop");
-                    } else if(parsedLetter == parseString("d")) {
-                       pushToFinalBoard(letter, boardNumberIndex,"Queen");
-                    } else if(parsedLetter == parseString("e")) {
-                      pushToFinalBoard(letter, boardNumberIndex,"King");
+                if(xIndex == 1 || xIndex == 8) {
+                    if(yIndex == 1 || yIndex == 8) {
+                      pushToFinalBoard(yIndex, xIndex,"Rook");
+                    } else if(yIndex == 2 || yIndex == 7) {
+                      pushToFinalBoard(yIndex, xIndex,"Knight");
+                    } else if(yIndex == 3 || yIndex == 6) {
+                       pushToFinalBoard(yIndex, xIndex,"Bishop");
+                    } else if(yIndex == 4) {
+                       pushToFinalBoard(yIndex, xIndex,"Queen");
+                    } else if(yIndex == 5) {
+                      pushToFinalBoard(yIndex, xIndex,"King");
                     }
-                } else if(boardNumberIndex == 2 || boardNumberIndex == 7) {
-                    pushToFinalBoard(letter, boardNumberIndex,"Pawn");
+                } else if(xIndex == 2 || xIndex == 7) {
+                    pushToFinalBoard(yIndex, xIndex,"Pawn");
                 } else {
-                  pushToFinalBoard(letter, boardNumberIndex,"");
+                  pushToFinalBoard(yIndex, xIndex,"");
                 }
             }
         }
     }
 
-    function pushToFinalBoard( string memory _letter, uint _index, string memory _piece) internal {
-      finalBoard.push(FinalBoard(_letter, _index, _piece));
+    function verifyLegalMove() internal returns(bool) {
+     
+    }
+
+    function pushToFinalBoard(uint _y, uint _x, string memory _piece) internal {
+      finalBoard.push(FinalBoard(_y, _x, _piece));
     }
 
     function parseString(string memory _letter) pure  internal returns (bytes32) {
       return keccak256(abi.encode(_letter));
     }
 
-    function getBoard(uint _i) public view returns(string memory, uint, string memory) {
+    function getBoard(uint _i) public view returns(uint, uint, string memory) {
       FinalBoard memory result = finalBoard[_i];
-      return (result.letter, result.number,result.piece);
+      return (result.yAxis, result.xAxis,result.piece);
     }
 
 }
