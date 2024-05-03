@@ -61,6 +61,16 @@ contract Chess {
               return true;
              } 
              return false;
+        } else if(parseString(_piece) == parseString("Bishop")) {
+          if(absolute(dy) == absolute(dx)) {
+            return true;
+          }
+          return false;
+        } else if(parseString(_piece) == parseString("Rook")) {
+          if(dx == 0 || dy == 0) {
+            return true;
+          }
+          return false;
         }
         return false;
     }
@@ -76,6 +86,10 @@ contract Chess {
     function getBoard(uint _i) public view returns(uint, uint, string memory) {
       PiecePosition memory result = finalBoard[_i];
       return (result.yAxis, result.xAxis,result.piece);
+    }
+
+    function absolute(int _n) internal pure returns(int) {
+        return _n >= 0 ? _n : -_n;
     }
 
 }
