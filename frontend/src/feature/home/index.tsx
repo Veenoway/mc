@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 import Lenis from "lenis";
 import { useRef } from "react";
-import { ConnectPeople } from "./components/connect-people";
+import { Chess } from "../chess";
 import { OddBox } from "./components/odd-box";
 import { characters, infos } from "./constant";
 import { ParralaxContentProps } from "./models";
@@ -118,6 +118,7 @@ export const Home = ({ memes }: HomeProps) => {
 
   return (
     <div className="relative bg-[url('/parralax/fgg.png')] bg-fixed bg-cover">
+      <Chess />
       <div style={{ width: "100vw", height: "110vh" }}>
         <div
           style={{ width: "100%", height: "100%" }}
@@ -240,7 +241,7 @@ export const Home = ({ memes }: HomeProps) => {
         </motion.div>
       </div>
       <HeroParallax memes={memes || []} />
-      <ConnectPeople />
+      {/* <ConnectPeople /> */}
     </div>
   );
 };
