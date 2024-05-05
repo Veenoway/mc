@@ -24,20 +24,20 @@ contract Chess {
                 console.log("yindex",yIndex,xIndex);
                 if(yIndex == 1 || yIndex == 8) {
                     if(xIndex == 1 || xIndex == 8) {
-                      pushToFinalBoard(yIndex, xIndex,"Rook", 2);
+                      pushToFinalBoard(yIndex, xIndex,"Rook");
                     } else if(xIndex == 2 || xIndex == 7) {
-                      pushToFinalBoard(yIndex, xIndex,"Knight", 2);
+                      pushToFinalBoard(yIndex, xIndex,"Knight");
                     } else if(xIndex == 3 || xIndex == 6) {
-                       pushToFinalBoard(yIndex, xIndex,"Bishop",1);
+                       pushToFinalBoard(yIndex, xIndex,"Bishop");
                     } else if(xIndex == 4) {
-                       pushToFinalBoard(yIndex, xIndex,"Queen",1);
+                       pushToFinalBoard(yIndex, xIndex,"Queen");
                     } else if(xIndex == 5) {
-                      pushToFinalBoard(yIndex, xIndex,"King",2);
+                      pushToFinalBoard(yIndex, xIndex,"King");
                     }
                 } else if(yIndex == 2 || yIndex == 7) {
-                    pushToFinalBoard(yIndex, xIndex,"Pawn",2);
+                    pushToFinalBoard(yIndex, xIndex,"Pawn");
                 } else {
-                  pushToFinalBoard(yIndex, xIndex,"",0);
+                  pushToFinalBoard(yIndex, xIndex,"");
                 }
             }
         }
@@ -96,8 +96,16 @@ contract Chess {
         return false;
     }
 
-    function pushToFinalBoard(uint _y, uint _x, string memory _piece, uint8 _color) internal {
-      finalBoard.push(PiecePosition(_y, _x, _piece,_color));
+    function pushToFinalBoard(uint _y, uint _x, string memory _piece ) internal {
+      uint8 color = getColor(_y);
+      finalBoard.push(PiecePosition(_y, _x, _piece,color));
+    }
+
+
+    function getColor(uint _y) pure internal returns (uint8) {
+        if(_y == 8 || _y == 7) return 2;
+        if(_y == 1 || _y == 2) return 1;
+        return 0;
     }
 
     function parseString(string memory _str) pure  internal returns (bytes32) {
