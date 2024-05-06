@@ -88,7 +88,6 @@ contract Chess {
           }
         } else if(parseString(_piece) == parseString("Queen")) {
           if(((dx == 0 && dy != 0) || (dx != 0 && dy == 0) || (absolute(dx) == absolute(dy)))) {
-            // do something
             return true;
           }
           return false;
