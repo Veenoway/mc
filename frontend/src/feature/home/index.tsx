@@ -129,7 +129,7 @@ export const Home = ({ memes }: HomeProps) => {
         >
           <div className="flex items-center absolute top-[16%] -left-[100px] z-10 w-full justify-center">
             <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
-              MONAD X DEMASK
+              Welcome to Monad Lore
             </ExtraLargeFont>
           </div>
           <motion.img
