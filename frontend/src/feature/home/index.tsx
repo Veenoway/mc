@@ -42,9 +42,7 @@ export const Home = ({ memes }: HomeProps) => {
   const yOffset3 = useTransform(mouseY, [0, window.innerHeight], [10, -10]);
 
   const parallaxRangeScroll = [0, window.innerHeight * 0.5];
-
   const scale = useTransform(scrollY, parallaxRangeScroll, [1, 1.1]);
-
   const springConfig = { stiffness: 100, damping: 10, bounce: 0 };
   const machinRef = useRef(null);
 
