@@ -81,14 +81,6 @@ export const Home = ({ memes }: HomeProps) => {
     delay: number;
   };
 
-  // const AnimationProps = z.object({
-  //   position: z.string(),
-  //   translate: MotionValue,
-  //   delay: z.number(),
-  // });
-
-  // type AnimationType = z.infer<typeof AnimationProps>;
-
   const getAnimationStyle = (i: number): AnimationStyle => {
     if (i === 0)
       return {
