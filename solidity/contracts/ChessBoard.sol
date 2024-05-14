@@ -100,7 +100,6 @@ contract Chess {
       finalBoard.push(PiecePosition(_y, _x, _piece,color));
     }
 
-
     function getColor(uint _y) pure internal returns (uint8) {
         if(_y == 8 || _y == 7) return 2;
         if(_y == 1 || _y == 2) return 1;
