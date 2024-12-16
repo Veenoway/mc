@@ -1,41 +1,361 @@
 import { CharacterProps, InfosProps } from "./models";
 
+export const exempleRecipes = [
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Aligot d'Auvergne",
+    url: "/",
+    image: "/receipe/aligot.jpeg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Blanquette de Veau",
+    url: "/",
+    image: "/receipe/blanquette.jpeg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Coq-Au-Vin",
+    url: "/",
+    image: "/receipe/coq-au-vin.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+  {
+    title: "Pot-au-Feu de Boeuf",
+    url: "/",
+    image: "/receipe/pot-au-feu.jpg",
+    flag: "/flags/france.png",
+    author: "Novee",
+    description:
+      "lorema kgneikrshg uirg hioeniof eops pes oplf ,klr ,glks ,skl nklge nskl es elk,e kl,dl zlm q",
+    difficulty: "Difficult",
+  },
+];
+
 export const characters: CharacterProps[] = [
   {
-    image: "/cards/moyaki.jpg",
-    title: "Moyaki",
-    description:
-      "Mokadel (also spelled Mokadal) is a monanimal created by Elea Rachel",
-    url: "/moyaki",
+    image: "/creator/novee.jpg",
+    title: "Novee",
+    description: "Novee is a local nads bla bla blalblablabalb blabla blabla",
+    url: "",
     logo: "/monad_logo_berry.png",
     background: "/backgrounds/berry.png",
-    rank_title: "Hero of ...",
-    rank: 12,
-    spell: "Spell name...",
-  },
-  {
-    image: "/cards/chog.jpg",
-    title: "Chog",
-    description:
-      "Chog is a cat-like creature known to inhabit the monad discord.",
-    url: "/chog",
-    logo: "/monad_logo_purple.png",
-    background: "/backgrounds/purple.png",
-    rank_title: "God of ...",
+    rank_title: "Web3 Developeur",
     rank: 18,
-    spell: "Spell name...",
+    spell: "5+ years",
   },
   {
-    image: "/cards/molandak.jpg",
-    title: "Molandak",
-    description:
-      "Molandak is a small purple hedgehog that inhabits the monad discord.",
-    url: "/molandak",
-    logo: "/monad_logo_green.png",
-    background: "/backgrounds/green.png",
-    rank_title: "King of ...",
-    rank: 17,
-    spell: "Spell name...",
+    image: "/creator/novee.jpg",
+    title: "Novee",
+    description: "Novee is a local nads bla bla blalblablabalb blabla blabla",
+    url: "",
+    logo: "/monad_logo_berry.png",
+    background: "/backgrounds/berry.png",
+    rank_title: "Web3 Developeur",
+    rank: 18,
+    spell: "5+ years",
+  },
+  {
+    image: "/creator/novee.jpg",
+    title: "Novee",
+    description: "Novee is a local nads bla bla blalblablabalb blabla blabla",
+    url: "",
+    logo: "/monad_logo_berry.png",
+    background: "/backgrounds/berry.png",
+    rank_title: "Web3 Developeur",
+    rank: 18,
+    spell: "5+ years",
   },
 ];
 

@@ -25,7 +25,7 @@ export const Card = ({ content, translate, position, delay }: CardProps) => {
     glarePosition: "all",
     glareBorderRadius: "40px",
     perspective: 1200,
-    scale: 1.1,
+    scale: 1.05,
     gyroscope: true,
     transitionSpeed: 2000,
     flipHorizontally: isFliped,
@@ -36,7 +36,7 @@ export const Card = ({ content, translate, position, delay }: CardProps) => {
       <Tilt
         {...(options as any)}
         className={cn(
-          "tiltcard bg-cover rounded-2xl relative parallax-effect-glare-scale "
+          "tiltcard bg-cover bg-top rounded-2xl relative parallax-effect-glare-scale "
         )}
       >
         <div

@@ -1,11 +1,11 @@
 import { Header } from "@/layouts/header";
 import ReactQueryProvider from "@/lib/react-query";
 import type { Metadata } from "next";
-import { Cinzel } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
 
-const cinzel = Cinzel({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
@@ -48,7 +48,7 @@ export default function RootLayout({
         ></script>
       </head>
       <ReactQueryProvider>
-        <body className={cinzel.className}>
+        <body className={poppins.className}>
           <Header />
           <main>{children}</main>
         </body>

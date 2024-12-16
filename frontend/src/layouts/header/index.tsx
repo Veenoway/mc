@@ -1,6 +1,6 @@
 export const Header = () => {
   return (
-    <header className="bg-[rgba(255,255,255,0.05)] backdrop-blur-lg w-full h-[70px] border-b-2 border-base-border flex justify-center fixed top-0 z-[101]">
+    <header className="bg-[rgba(255,255,255,0.05)] w-full h-[70px] border-b-2 border-base-border flex justify-center ">
       <div className="flex items-center justify-between w-[90%] h-full">
         <div className="flex items-center">
           <img
@@ -10,7 +10,7 @@ export const Header = () => {
             alt="Monad logo"
           />
           <h1 className="text-white text-[24px] leading-9 ml-2 font-gramatika font-bold">
-            Noname
+            MonaFood
           </h1>
         </div>
         <nav className="flex items-center">
@@ -21,10 +21,16 @@ export const Header = () => {
             Home
           </a>
           <a
-            href="/arts"
+            href="/recipes"
             className="text-white font-medium text-[16px] leading-9 mr-5 font-hoves-pro-bold"
           >
-            Community Arts
+            Recipes
+          </a>
+          <a
+            href="/restaurants"
+            className="text-white font-medium text-[16px] leading-9 mr-5 font-hoves-pro-bold"
+          >
+            Restaurants
           </a>
           <a
             href="/faq"

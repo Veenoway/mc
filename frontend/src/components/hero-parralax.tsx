@@ -17,9 +17,9 @@ type HeroParallaxProps = {
 };
 
 export const HeroParallax = ({ memes }: HeroParallaxProps) => {
-  const firstRow = memes.slice(0, 5);
-  const secondRow = memes.slice(5, 10);
-  const thirdRow = memes.slice(10, 15);
+  const firstRow = memes.slice(0, 8);
+  const secondRow = memes.slice(8, 16);
+  const thirdRow = memes.slice(24, 32);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -55,7 +55,7 @@ export const HeroParallax = ({ memes }: HeroParallaxProps) => {
   return (
     <div
       ref={ref}
-      className="h-[230vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -94,12 +94,13 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full z-10 left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold text-white font-gramatika">
-        Discover Arts & Meme <br /> made by community
+        Discover all receipe <br /> made by Nads
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-white font-hoves-pro-bold">
-        Explore a curated selection of creative artworks and memes, all crafted
-        by our vibrant community. Immerse yourself in a world of creativity and
-        humor where everyone brings their own unique touch.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis
+        porro omnis in incidunt eos quibusdam nobis assumenda quod voluptate
+        accusamus. Incidunt voluptas modi tempora placeat debitis distinctio
+        eveniet maiores pariatur!
       </p>
     </div>
   );
@@ -137,7 +138,7 @@ export const MemeCard = ({
         y: -20,
       }}
       key={meme.title}
-      className="group/product h-[405px] w-[25rem] relative flex-shrink-0"
+      className="group/product h-[445px] w-[25rem] relative flex-shrink-0"
     >
       <Link href={meme.url} className="block group-hover/product:shadow-2xl ">
         <div className="flex flex-col backdrop-filter backdrop-blur-lg w-[450px] bg-line bg-cover bg-center shadow-2xl rounded-xl border-2 border-base-border object-cover object-left-top absolute inset-0">
@@ -149,11 +150,15 @@ export const MemeCard = ({
             alt={`${meme.title} image`}
             onError={() => setHasError(true)}
           />
-          <div className="flex items-center justify-center px-5 py-3">
+          <div className="flex items-center px-5 py-3">
+            <img src={meme.flag} className="h-[30px] mr-2.5" />
             <h3 className="text-white text-xl text-center font-bold font-gramatika">
               {meme.title}
             </h3>
           </div>
+          <p className="text-[rgba(255,255,255,0.8)] text-xl text-start px-5 font-bold font-gramatika">
+            Author: <span className="text-white">{meme.author}</span>
+          </p>
         </div>
       </Link>
       {/* <div className="absolute inset-0 h-full p-5 w-full opacity-0 group-hover/product:opacity-80 bg-background-dark-purple pointer-events-none rounded-2xl transition-all duration-300"></div> */}

@@ -15,7 +15,7 @@ import Lenis from "lenis";
 import Link from "next/link";
 import { useRef } from "react";
 import { OddBox } from "./components/odd-box";
-import { characters, infos } from "./constant";
+import { characters, exempleRecipes, infos } from "./constant";
 import { ParralaxContentProps } from "./models";
 
 type HomeProps = { memes: ParralaxContentProps[] };
@@ -112,7 +112,7 @@ export const Home = ({ memes }: HomeProps) => {
       <div className="relative h-screen w-screen ">
         <div className="absolute pointer-events-none z-[100] left-1/2 text-center -translate-x-1/2 -translate-y-1/2 top-1/2">
           <LargeFont className=" font-gramatika text-[80px] uppercase font-bold text-black dark:text-white max-w-[90%] leading-[75px] ">
-            Welcome to Monad!
+            Welcome to MonaFood!
           </LargeFont>
           <MediumFont className="text-white text-center mt-9 max-w-[1400px] w-[95%]">
             Step into a realm of adventure and mystery, inspired by the
@@ -124,7 +124,7 @@ export const Home = ({ memes }: HomeProps) => {
           <div className="flex items-center mt-[50px] mx-auto">
             <motion.button
               className="mt-8 text-white font-bold flex rounded-md h-11 animate-shimmer font-hoves-pro-bold items-center justify-center border border-base-border bg-[linear-gradient(110deg,#836EF9,45%,#b5a8fa,55%,#836EF9)] 
-            bg-[length:200%_100%]  border-[#b5a8fa] w-[120px] focus:outline-none focus:ring-2  focus:ring-offset-2 transition-all duration-500 hover:tracking-wide"
+            bg-[length:200%_100%]  border-[#b5a8fa] w-[120px] focus:outline-none focus:ring-2  focus:ring-offset-2 transition-all duration-500 hover:tracking-wide "
             >
               <Link
                 href="https://discord.com/invite/monad"
@@ -166,11 +166,12 @@ export const Home = ({ memes }: HomeProps) => {
       </div>
       <div className="flex flex-col justify-center items-center pb-[300px]  w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none uppercase">
-          Discover Monad Characters!
+          Discover who are the <br />
+          creator of MonaFood!
         </LargeFont>
         <MediumFont className="z-10 text-80 mt-10 pointer-events-none max-w-[700px] text-center">
-          Select a character to begin with. By choosing a team you will be able
-          to help this house to earn points by winning chess games!
+          Built by Nads, for nads, dedicating there time to unleash the nads
+          culinar experiences.
         </MediumFont>
         <motion.div
           className="max-w-[1200px] flex w-full justify-between pt-[100px] z-10"
@@ -190,7 +191,7 @@ export const Home = ({ memes }: HomeProps) => {
           })}
         </motion.div>
       </div>
-      <HeroParallax memes={memes || []} />
+      <HeroParallax memes={exempleRecipes || []} />
       {/* <ConnectPeople /> */}
     </div>
   );
