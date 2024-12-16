@@ -38,11 +38,12 @@ export const OddBox = ({ content }: OddBoxType) => {
             <div className="w-full h-full relative">
               <img
                 src="/test/pipeline.jpg"
+                alt="pipeline image"
                 className="h-[30px] w-[30px] absolute top-3.5 right-3.5 rounded-full"
               />
-
               <img
-                src="/test/char.jpg"
+                src={content.image}
+                alt={content.title_1 + " image"}
                 height="350px"
                 width="350px"
                 className="object-cover h-[350px] rounded-lg"

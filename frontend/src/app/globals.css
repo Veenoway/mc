@@ -6,21 +6,6 @@
 }
 
 @font-face {
-  font-family: "TT Hoves Pro DemiBold";
-  src: url("/chemin/vers/TT_Hoves_Pro_DemiBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "TT Hoves Pro Medium";
-  src: url("/chemin/vers/TT_Hoves_Pro_Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "TT Hoves Pro Regular";
-  src: url("/chemin/vers/TT_Hoves_Pro_Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "October";
   src: url("/fonts/october.otf") format("otf");
 }
@@ -44,8 +29,9 @@
 } */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   font-family: "Gramatika";
+  background-color: rgb(32 0 82);
   /* background: radial-gradient(at right top, #0d0021, #200052 80%, #200052); */
 }
 

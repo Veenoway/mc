@@ -5,30 +5,30 @@ export const Header = () => {
         <div className="flex items-center">
           <img
             src="/monad_logo_blue.png"
-            width="50"
-            height="50"
+            width="40"
+            height="40"
             alt="Monad logo"
           />
           <h1 className="text-white text-[24px] leading-9 ml-2 font-gramatika font-bold">
-            Monad Lore
+            Noname
           </h1>
         </div>
         <nav className="flex items-center">
           <a
             href="/"
-            className="text-white text-[16px] leading-9 mr-5 font-hoves-pro-bold"
+            className="text-white font-medium text-[16px] leading-9 mr-5 font-hoves-pro-bold"
           >
             Home
           </a>
           <a
             href="/arts"
-            className="text-white text-[16px] leading-9 mr-5 font-hoves-pro-bold"
+            className="text-white font-medium text-[16px] leading-9 mr-5 font-hoves-pro-bold"
           >
             Community Arts
           </a>
           <a
             href="/faq"
-            className="text-white text-[16px] leading-9 font-hoves-pro-bold"
+            className="text-white font-medium text-[16px] leading-9 font-hoves-pro-bold"
           >
             F.A.Q
           </a>

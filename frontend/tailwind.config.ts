@@ -31,6 +31,8 @@ const config: Config = {
           purple: "#200052",
           "dark-purple": "#0d0021",
           "glass-purple": "rgba(32, 0, 82, 0.2)",
+          "dark-purple-variant": "#3e009e17",
+          terciary: "#6400ff0d",
         },
         header: "#200052",
         "base-border": "rgba(255,255,255,0.05)",

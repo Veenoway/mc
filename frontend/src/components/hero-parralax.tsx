@@ -113,7 +113,20 @@ export const MemeCard = ({
   translate: MotionValue<number>;
 }) => {
   const [hasError, setHasError] = useState(false);
-  const images = ["/chog.png", "/moyaki.png", "/molandak.png"];
+  const images = [
+    "/community/1.jpg",
+    "/community/2.png",
+    "/community/3.jpeg",
+    "/community/4.jpeg",
+    "/community/5.jpeg",
+    "/community/6.jpeg",
+    "/community/9.jpeg",
+    "/community/8.jpeg",
+    "/community/7.jpeg",
+    "/community/10.png",
+    "/community/11.png",
+    "/community/12.png",
+  ];
   const errorImage = getRandom(images);
   return (
     <motion.div
@@ -131,7 +144,7 @@ export const MemeCard = ({
           <Image
             width="200"
             height="200"
-            className="mx-auto object-cover rounded-t-xl w-[450px] h-[350px]"
+            className={`mx-auto object-cover rounded-t-xl w-[450px] h-[350px]`}
             src={hasError ? errorImage : meme.image}
             alt={`${meme.title} image`}
             onError={() => setHasError(true)}

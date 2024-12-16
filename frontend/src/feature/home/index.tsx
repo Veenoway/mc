@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "@/components/card";
-import { ExtraLargeFont, LargeFont, MediumFont } from "@/components/font";
+import { LargeFont, MediumFont } from "@/components/font";
+import { BackgroundGradientAnimation } from "@/components/gradient-background";
 import { HeroParallax } from "@/components/hero-parralax";
 import {
   MotionValue,
@@ -11,8 +12,8 @@ import {
   useTransform,
 } from "framer-motion";
 import Lenis from "lenis";
+import Link from "next/link";
 import { useRef } from "react";
-import { ConnectPeople } from "./components/connect-people";
 import { OddBox } from "./components/odd-box";
 import { characters, infos } from "./constant";
 import { ParralaxContentProps } from "./models";
@@ -44,18 +45,18 @@ export const Home = ({ memes }: HomeProps) => {
   const parallaxRangeScroll = [0, window.innerHeight * 0.5];
   const scale = useTransform(scrollY, parallaxRangeScroll, [1, 1.1]);
   const springConfig = { stiffness: 100, damping: 10, bounce: 0 };
-  const machinRef = useRef(null);
+  const cardRef = useRef(null);
 
   const { scrollYProgress: scrollYFirst } = useScroll({
-    target: machinRef,
+    target: cardRef,
     offset: ["0 1", "0.5 1"],
   });
   const { scrollYProgress: scrollYSec } = useScroll({
-    target: machinRef,
+    target: cardRef,
     offset: ["0.15 1", "0.65 1"],
   });
   const { scrollYProgress: scrollYThird } = useScroll({
-    target: machinRef,
+    target: cardRef,
     offset: ["0.30 1", "0.8 1"],
   });
 
@@ -107,49 +108,43 @@ export const Home = ({ memes }: HomeProps) => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-66%"]);
 
   return (
-    <div className="relative bg-[url('/parralax/fgg.png')] bg-fixed bg-cover">
-      <div style={{ width: "100vw", height: "110vh" }}>
-        <div
-          style={{ width: "100%", height: "100%" }}
-          onMouseMove={(event) => {
-            mouseX.set(event.clientX);
-            mouseY.set(event.clientY);
-          }}
-          className="relative overflow-x-hidden"
-        >
-          <div className="flex items-center absolute top-[16%] -left-[100px] z-10 w-full justify-center">
-            <ExtraLargeFont className="shadowText text-white text-center leading-[60px] text-7xl">
-              Welcome to Monad Lore
-            </ExtraLargeFont>
+    <div className="relative">
+      <div className="relative h-screen w-screen ">
+        <div className="absolute pointer-events-none z-[100] left-1/2 text-center -translate-x-1/2 -translate-y-1/2 top-1/2">
+          <LargeFont className=" font-gramatika text-[80px] uppercase font-bold text-black dark:text-white max-w-[90%] leading-[75px] ">
+            Welcome to Monad!
+          </LargeFont>
+          <MediumFont className="text-white text-center mt-9 max-w-[1400px] w-[95%]">
+            Step into a realm of adventure and mystery, inspired by the
+            legendary characters of Monad. Immerse yourself in this captivating
+            universe where Chog, Moyaki, and Molandak come to life, leading you
+            through exhilarating challenges and epic competitions.
+          </MediumFont>{" "}
+          {/* <img src="/backgrounds/t.png" className="h-[600px] min-w-[1450px]" /> */}
+          <div className="flex items-center mt-[50px] mx-auto">
+            <motion.button
+              className="mt-8 text-white font-bold flex rounded-md h-11 animate-shimmer font-hoves-pro-bold items-center justify-center border border-base-border bg-[linear-gradient(110deg,#836EF9,45%,#b5a8fa,55%,#836EF9)] 
+            bg-[length:200%_100%]  border-[#b5a8fa] w-[120px] focus:outline-none focus:ring-2  focus:ring-offset-2 transition-all duration-500 hover:tracking-wide"
+            >
+              <Link
+                href="https://discord.com/invite/monad"
+                target="_blank"
+                rel="noopener norefferer"
+              >
+                Join
+              </Link>
+            </motion.button>
           </div>
-          <motion.img
-            src="/parralax/skycc.png"
-            className="absolute z-0 top-0"
-          />
-          <motion.img
-            src="/parralax/BG.png"
-            className="absolute -bottom-[5vh]"
-            style={{ x: xOffset3, y: yOffset3, scale }}
-          />
-          <motion.img
-            src="/parralax/MG.png"
-            className="absolute z-2 -bottom-[10vh]"
-            style={{ x: xOffset2, y: yOffset2, scale }}
-          />
-          <motion.img
-            src="/parralax/FG1.png"
-            className="absolute -bottom-[0vh] z-3 scale-105"
-            style={{ x: xOffset1, y: yOffset1, scale }}
-          />
         </div>
-      </div>
 
-      <div className=" flex flex-col mx-auto mt-[350px] mb-[100px] relative">
+        <BackgroundGradientAnimation />
+      </div>
+      <div className=" flex flex-col mx-auto mt-[150px] mb-[100px] relative">
         <div className="flex flex-col w-full items-center">
-          <LargeFont className="font-gramatika text-[100px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
+          <LargeFont className="font-gramatika text-[80px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
             Embark on Your
           </LargeFont>
-          <LargeFont className="font-gramatika text-[100px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
+          <LargeFont className="font-gramatika text-[80px] uppercase font-bold text-black dark:text-white max-w-2/4 leading-[95px] slide-title">
             Legendary Journey
           </LargeFont>
           <MediumFont className="text-white text-center mt-9 max-w-4xl w-[95%]">
@@ -160,7 +155,7 @@ export const Home = ({ memes }: HomeProps) => {
           </MediumFont>{" "}
         </div>
         <div ref={sliderRef} className="h-[250vh] relative">
-          <div className="sticky top-0  left-0 flex items-center h-[screen] overflow-hidden ">
+          <div className="sticky top-0 left-0 flex items-center h-[screen] overflow-hidden ">
             <motion.div style={{ x }} className="flex relative">
               {infos.map((content, i) => (
                 <OddBox key={i} content={content} />
@@ -171,7 +166,7 @@ export const Home = ({ memes }: HomeProps) => {
       </div>
       <div className="flex flex-col justify-center items-center pb-[300px]  w-screen">
         <LargeFont className="z-10 text-6xl font-bold pointer-events-none uppercase">
-          Select your team now!
+          Discover Monad Characters!
         </LargeFont>
         <MediumFont className="z-10 text-80 mt-10 pointer-events-none max-w-[700px] text-center">
           Select a character to begin with. By choosing a team you will be able
@@ -179,7 +174,7 @@ export const Home = ({ memes }: HomeProps) => {
         </MediumFont>
         <motion.div
           className="max-w-[1200px] flex w-full justify-between pt-[100px] z-10"
-          ref={machinRef}
+          ref={cardRef}
         >
           {characters.map((character, i) => {
             const { translate, position, delay } = getAnimationStyle(i);
@@ -196,7 +191,7 @@ export const Home = ({ memes }: HomeProps) => {
         </motion.div>
       </div>
       <HeroParallax memes={memes || []} />
-      <ConnectPeople />
+      {/* <ConnectPeople /> */}
     </div>
   );
 };
