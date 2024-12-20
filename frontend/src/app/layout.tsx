@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Monad Lore",
+  title: "MonChef",
   description:
     "Monad Lore allow users to discover the lore of Monad. It will allow users to fight for his house by playing games.",
 };
