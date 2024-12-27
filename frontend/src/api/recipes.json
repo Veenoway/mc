@@ -1,0 +1,113 @@
+{
+  "recipes": [
+    {
+      "id": "recipe_001",
+      "name": "Coq au Vin",
+      "authorID": "chef_jean_pierre",
+      "rating": {
+        "average": 4.5,
+        "total_reviews": 128,
+        "reviews": [
+          {
+            "authorID": "user123",
+            "date": 1703433600000,
+            "rating": 5,
+            "id": "mama_lucia",
+            "comment": "Excellente recette ! Les proportions sont parfaites, un vrai délice.",
+            "images": ["review-001-1.jpg", "review-001-2.jpg"]
+          },
+          {
+            "authorID": "chef456",
+            "date": 1703520000000,
+            "rating": 4,
+            "id": "mama_lucia",
+            "comment": "Très bonne recette traditionnelle. J'ai ajouté des champignons de Paris, c'était délicieux !",
+            "images": []
+          },
+          {
+            "authorID": "foodie789",
+            "date": 1703606400000,
+            "rating": 4.5,
+            "id": "mama_lucia",
+            "comment": "Un classique bien expliqué. La sauce était parfaite.",
+            "images": ["review-001-3.jpg"]
+          }
+        ]
+      },
+      "description": "Un plat traditionnel français mijotant du poulet dans du vin rouge avec des lardons et des petits oignons.",
+      "country": "France",
+      "categories": ["Plat principal", "Volaille", "Cuisine traditionnelle"],
+      "created_at": 1703347200000,
+      "images": [
+        "coq-au-vin-plat.jpg",
+        "coq-au-vin-preparation.jpg",
+        "coq-au-vin-final.jpg"
+      ],
+      "duration": "2h30",
+      "difficulty": "Intermédiaire",
+      "recipe": "1. Faire revenir les lardons dans une cocotte.\n2. Retirer les lardons et faire dorer le poulet sur toutes les faces.\n3. Ajouter les oignons et les faire dorer.\n4. Déglacer au vin rouge (75cl).\n5. Ajouter le bouquet garni et les champignons.\n6. Laisser mijoter à feu doux pendant 1h30.\n7. Rectifier l'assaisonnement.\n8. Servir chaud avec des pommes de terre."
+    },
+    {
+      "id": "recipe_002",
+      "name": "Pad Thai",
+      "authorID": "thai_cooking_master",
+      "rating": {
+        "average": 4.2,
+        "total_reviews": 89,
+        "reviews": [
+          {
+            "authorID": "asian_food_lover",
+            "date": 1703347200000,
+            "rating": 5,
+            "id": "mama_lucia",
+            "comment": "Authentique et délicieux ! Les proportions de la sauce sont parfaites.",
+            "images": ["review-002-1.jpg"]
+          },
+          {
+            "authorID": "cooking_master",
+            "date": 1703433600000,
+            "rating": 4,
+            "id": "mama_lucia",
+            "comment": "La sauce est bien équilibrée, mais j'ai dû ajuster un peu l'acidité.",
+            "images": []
+          }
+        ]
+      },
+      "description": "Un plat de nouilles sautées signature de la cuisine thaïlandaise",
+      "country": "Thaïlande",
+      "categories": ["Plat principal", "Nouilles", "Cuisine asiatique"],
+      "created_at": 1703260800000,
+      "images": ["pad-thai-served.jpg", "pad-thai-cooking.jpg"],
+      "duration": "45min",
+      "difficulty": "Facile",
+      "recipe": "1. Faire tremper les nouilles de riz dans l'eau tiède pendant 30 minutes.\n2. Préparer la sauce : mélanger sauce poisson, sucre de palme, tamarin.\n3. Faire revenir les crevettes dans un wok.\n4. Ajouter l'ail et le tofu.\n5. Incorporer les nouilles égouttées.\n6. Verser la sauce et mélanger.\n7. Ajouter les germes de soja et la ciboulette.\n8. Servir avec des cacahuètes concassées et du citron vert."
+    },
+    {
+      "id": "recipe_003",
+      "name": "Tiramisu",
+      "authorID": "mama_lucia",
+      "rating": {
+        "average": 4.8,
+        "total_reviews": 156,
+        "reviews": [
+          {
+            "authorID": "dolce_vita",
+            "id": "mama_lucia",
+            "date": 1703174400000,
+            "rating": 5,
+            "comment": "Recette authentique italienne, grazie mille! Le meilleur tiramisu que j'ai fait.",
+            "images": ["review-003-1.jpg", "review-003-2.jpg"]
+          }
+        ]
+      },
+      "description": "Le célèbre dessert italien à base de mascarpone et de café",
+      "country": "Italie",
+      "categories": ["Dessert", "Sans cuisson", "Café"],
+      "created_at": 1703088000000,
+      "images": ["tiramisu-coupe.jpg", "tiramisu-preparation.jpg"],
+      "duration": "30min + 4h repos",
+      "difficulty": "Facile",
+      "recipe": "1. Séparer les blancs des jaunes d'œufs.\n2. Mélanger les jaunes avec le sucre jusqu'à blanchiment.\n3. Ajouter le mascarpone et mélanger.\n4. Monter les blancs en neige et incorporer délicatement.\n5. Tremper rapidement les biscuits dans le café.\n6. Alterner couches de crème et biscuits.\n7. Saupoudrer de cacao.\n8. Réserver au frais 4h minimum."
+    }
+  ]
+}

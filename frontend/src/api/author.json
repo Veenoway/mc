@@ -1,0 +1,77 @@
+{
+  "authors": [
+    {
+      "authorID": "chef_jean_pierre",
+      "username": "Chef Jean-Pierre",
+      "email": "jean.pierre@cuisine.fr",
+      "avatar": "jean-pierre-avatar.jpg",
+      "bio": "Chef professionnel spécialisé en cuisine française traditionnelle",
+      "created_at": 1672531200000,
+      "comments": [
+        {
+          "recipeID": "recipe_002",
+          "date": 1703433600000,
+          "content": "Excellente adaptation de la recette traditionnelle !"
+        }
+      ],
+      "likes": {
+        "given": 145,
+        "received": 892
+      },
+      "grade": "Chef Expert",
+      "badges": ["Top Chef 2023", "Cuisine Française", "1000+ Likes"],
+      "stats": {
+        "recipes_count": 48,
+        "followers_count": 1250,
+        "following_count": 75
+      },
+      "specialties": ["Cuisine française", "Sauces", "Viandes"],
+      "social_links": {
+        "instagram": "@chef_jeanpierre",
+        "youtube": "ChefJeanPierreCuisine"
+      },
+      "favorite_recipes": ["recipe_001", "recipe_015", "recipe_023"],
+      "verified": true,
+      "location": {
+        "city": "Lyon",
+        "country": "France"
+      }
+    },
+    {
+      "authorID": "mama_lucia",
+      "username": "Mamma Lucia",
+      "email": "lucia@cucina.it",
+      "avatar": "lucia-avatar.jpg",
+      "bio": "Passionnée de cuisine italienne traditionnelle depuis 30 ans",
+      "created_at": 1677628800000,
+      "comments": [
+        {
+          "recipeID": "recipe_003",
+          "date": 1703347200000,
+          "content": "La vraie recette de ma grand-mère !"
+        }
+      ],
+      "likes": {
+        "given": 89,
+        "received": 567
+      },
+      "grade": "Chef Amateur",
+      "badges": ["Cuisine Italienne", "Desserts Expert"],
+      "stats": {
+        "recipes_count": 23,
+        "followers_count": 845,
+        "following_count": 102
+      },
+      "specialties": ["Pâtes fraîches", "Desserts italiens", "Pizzas"],
+      "social_links": {
+        "instagram": "@mamma_lucia_cucina"
+      },
+      "favorite_recipes": ["recipe_003", "recipe_008"],
+      "verified": false,
+      "location": {
+        "city": "Rome",
+        "country": "Italie"
+      }
+    }
+  ]
+}

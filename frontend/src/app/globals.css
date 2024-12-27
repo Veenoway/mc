@@ -276,3 +276,28 @@ body {
 .shadowText {
   text-shadow: #00000045 1px 0 10px;
 }
+
+input {
+  border: none;
+  background: none;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+input {
+  outline: none !important;
+}
