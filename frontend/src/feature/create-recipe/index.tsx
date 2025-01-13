@@ -2,7 +2,10 @@
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/popover";
 import { FileUpload } from "@/components/upload-file";
 import { countries } from "@/constants/country";
-import { useEffect, useState } from "react";
+import { useAuthStore } from "@/hooks/useAuth";
+import { calculateDigest } from "@/utils/signature";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface RecipeIngredient {
   id: string;
@@ -11,9 +14,26 @@ interface RecipeIngredient {
   unit: string;
 }
 
+type RecipeInfoType = {
+  name: string;
+  images: File[];
+  categories: string[];
+  description: string;
+  difficulty: string;
+  duration: string;
+  country: string;
+  recipe: string;
+  ingredients: RecipeIngredient[];
+};
+
 export default function CreateRecipe() {
+  const router = useRouter();
+  const { walletAddress, isConnected, connectWallet, calculateSignature } =
+    useAuthStore();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [searchCountry, setSearchCountry] = useState("");
-  const [recipeInfo, setRecipeInfo] = useState({
+  const [recipeInfo, setRecipeInfo] = useState<RecipeInfoType>({
     name: "",
     images: [],
     categories: [],
@@ -21,12 +41,127 @@ export default function CreateRecipe() {
     difficulty: "",
     duration: "",
     country: "",
+    recipe: "",
     ingredients: [] as RecipeIngredient[],
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // useEffect(() => {
+  //   if (!isAuthenticated) {
+  //     router.push("/");
+  //   }
+  // }, [isAuthenticated, router]);
+
+  console.log("isauth;", walletAddress);
+
+  const uploadImages = async (images: File[]) => {
+    try {
+      const formData = new FormData();
+
+      if (!walletAddress) {
+        throw new Error("Wallet not connected");
+      }
+
+      images.forEach((image) => {
+        formData.append("files", image);
+      });
+
+      formData.append("walletAddress", walletAddress);
+
+      const timestamp = Date.now();
+      const signature = await calculateDigest(
+        null,
+        "/api/upload",
+        timestamp,
+        true
+      );
+
+      const response = await fetch("http://localhost:3030/api/upload", {
+        method: "POST",
+        headers: {
+          signature,
+          timestamp: timestamp.toString(),
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload images");
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+      return data.urls;
+    } catch (error) {
+      console.error("Upload error:", error);
+      throw error;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(recipeInfo);
+
+    if (!walletAddress) {
+      throw new Error("Wallet not connected");
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      // Upload images d'abord
+      const imageUrls = await uploadImages(recipeInfo.images);
+
+      // Préparer les données
+      const recipeData = {
+        walletAddress,
+        title: recipeInfo.name,
+        description: recipeInfo.description,
+        country: recipeInfo.country,
+        categories: recipeInfo.categories,
+        images: imageUrls,
+        duration: recipeInfo.duration,
+        difficulty: recipeInfo.difficulty,
+        ingredients: recipeInfo.ingredients.map((ing) => ({
+          name: ing.name,
+          quantity: ing.quantity,
+          unit: ing.unit,
+        })),
+        instructions: recipeInfo.recipe,
+      };
+
+      // Obtenir la signature et le timestamp
+      const timestamp = Date.now();
+      const signature = await calculateDigest(
+        recipeData,
+        "/api/recipes",
+        timestamp
+      );
+
+      // Envoyer la requête
+      const response = await fetch("http://localhost:3030/api/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          signature,
+          timestamp: timestamp.toString(),
+        },
+        body: JSON.stringify(recipeData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to create recipe");
+      }
+
+      const newRecipe = await response.json();
+
+      router.push(`/recipe/${newRecipe.recipe_id}`);
+    } catch (err) {
+      console.error("Error:", err);
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (
@@ -70,10 +205,6 @@ export default function CreateRecipe() {
     });
   };
 
-  useEffect(() => {
-    console.log("recipe", recipeInfo);
-  }, [recipeInfo]);
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -94,7 +225,6 @@ export default function CreateRecipe() {
           required
         />
       </div>
-
       <div className="space-y-2">
         <label
           htmlFor="description"
@@ -322,15 +452,15 @@ export default function CreateRecipe() {
       </div>
       <div className="space-y-2">
         <label
-          htmlFor="description"
+          htmlFor="recipe"
           className="block text-sm font-medium text-white"
         >
           Recipe
         </label>
         <textarea
-          id="description"
-          name="description"
-          value={recipeInfo.description}
+          id="recipe"
+          name="recipe"
+          value={recipeInfo.recipe}
           onChange={handleChange}
           rows={7}
           className="w-full p-2 border border-gray-800 bg-[rgba(255,255,255,0.1)] rounded-md shadow-sm focus:ring-none focus:border-none"

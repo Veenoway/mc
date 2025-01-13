@@ -1,3 +1,5 @@
+import { ConnectButton } from "@/components/connectWallet";
+
 export const Header = () => {
   return (
     <header className="bg-[rgba(255,255,255,0.05)] w-full h-[70px] border-b-2 border-base-border flex justify-center ">
@@ -39,6 +41,7 @@ export const Header = () => {
             F.A.Q
           </a>
         </nav>
+        <ConnectButton />
       </div>
     </header>
   );
